@@ -1,0 +1,57 @@
+<!-- Themes Login + logo 2 -->
+<ion-content has-header>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row padding-horizontal align-self-flex-start>
+      <ion-col align-self-end col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!---Logo-->
+        <img [src]="data.logo">
+        <!---Logo Subtitle-->
+        <h2 login-subtitle no-margin>{{data.subtitle}}</h2>
+        <!---Logo Title-->
+        <h1 ion-text color="accent" login-title no-margin>{{data.title}}</h1>
+      </ion-col>
+      <ion-col align-self-start col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+          <ion-item padding margin-top [ngClass]="{'error-border':!authForm.controls.usuario.valid && authForm.controls.usuario.touched}">
+            <ion-label color="dark" stacked floating>{{data.labelUsername}}</ion-label>
+            <ion-input required type="text" placeholder="{{data.usuario}}" [(ngModel)]="usuario" formControlName="usuario"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="authForm.controls.usuario.hasError('required') && authForm.controls.usuario.touched">
+            <p>Sorry, field username is required!</p>
+          </ion-item>
+          <ion-item *ngIf="authForm.controls.usuario.hasError('pattern') && authForm.controls.usuario.touched">
+            <p>Sorry, only small and capital letters are allowed!</p>
+          </ion-item>
+          <ion-item *ngIf="authForm.controls.usuario.hasError('minlength') && authForm.controls.usuario.touched">
+            <p>Sorry, minimum username length is 8!</p>
+          </ion-item>
+          <ion-item *ngIf="authForm.controls.usuario.hasError('maxlength') && authForm.controls.usuario.touched">
+            <p>Sorry, maximum username length is 30!</p>
+          </ion-item>
+          <!---Input field password-->
+          <ion-item padding [ngClass]="{'error-border':!authForm.controls.senha.valid && authForm.controls.senha.touched}">
+            <ion-label color="dark" stacked floating>{{data.labelPassword}}</ion-label>
+            <ion-input required type="password" placeholder="{{data.senha}}" [(ngModel)]="senha" formControlName="senha"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="authForm.controls.senha.hasError('required') && authForm.controls.senha.touched">
+            <p>Sorry, field password is required!</p>
+          </ion-item>
+          <ion-item *ngIf="authForm.controls.senha.hasError('minlength') && authForm.controls.senha.touched">
+            <p>Sorry, minimum password length is 8!</p>
+          </ion-item>
+          <button ion-button default-button full color="secondary" [disabled]="!authForm.valid" style="margin-top: 20px; text-transform: none;" type="submit">{{data.login}}</button>
+
+        </form>
+
+        <ion-item padding no-lines>
+          <ion-col align-self-start col-6 col-sm-6 col-md-6 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+            <span style="color: black !important;display: table; margin: 0 auto;" (click)="onEvent('onNewPassword')">Esqueci a senha</span>
+          </ion-col>
+        </ion-item>
+      </ion-col>
+
+      <!---Share Section-->
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,22 +1,99 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, MenuController, Nav, ModalController, Events } from 'ionic-angular';
+import { StatusBar, Splashscreen } from 'ionic-native';
+import { AuthService } from '../services/auth.service';
+import {App} from "ionic-angular";
+import { MenuService } from '../services/menu-service';
+import { AppSettings } from '../services/app-settings';
 
-import { HomePage } from '../pages/home/home';
+import { IService } from '../services/IService';
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [MenuService]
 })
-export class MyApp {
-  rootPage:any = HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+export class MyApp {
+  @ViewChild(Nav) nav: Nav;
+
+  rootPage = "LoginPage";
+  pages: any;
+  params:any;
+  leftMenuTitle: string;
+
+  constructor(
+      public platform: Platform,
+      public menu: MenuController,
+      private menuService: MenuService,
+      public modalCtrl: ModalController,
+      public auth: AuthService,
+      public events: Events,
+      private app: App
+    ) {
+    this.initializeApp();
+
+    this.pages = menuService.getAllThemes();
+    this.leftMenuTitle = menuService.getTitle();
+
+    this.menuService.load(null).subscribe( snapshot => {
+        this.params = snapshot;
+        this.params.image = "assets/images/avatar/1.jpg";
+    });
+
+    if (AppSettings.SHOW_START_WIZARD) {
+      this.presentProfileModal();
+    }
+    events.subscribe('shareObject', (user) => {
+      this.params.color = '#ccc'
+      this.params.user = user;
     });
   }
-}
 
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      StatusBar.styleDefault();
+      //this.menu.enable(false,'side-menu');
+      console.log(this.auth.requireAuth());
+      if(this.auth.requireAuth()){
+        this.app.getActiveNav().setRoot("DashboardPage")
+        //this.rootPage = "DashboardPage";
+        this.params.color = '#4FC3F7'
+        this.params.user = this.auth.getStorageVariable('profile')
+      }else{
+        this.params.user = null
+        this.app.getActiveNav().setRoot("LoginPage")
+       // this.rootPage = "LoginPage";
+      }
+      Splashscreen.hide();
+     /* (<any>window).handleOpenURL = (url) => {
+        Auth0Cordova.onRedirectUri(url);
+      };*/
+     // localStorage.setItem("mailChimpLocal", "true");
+    });
+  }
+
+  presentProfileModal() {
+    const profileModal = this.modalCtrl.create("IntroPage");
+    profileModal.present();
+  }
+
+  openPage(page) {
+    if(page.title == 'Sair'){
+      this.auth.logout();
+    }else{
+      this.menu.open();
+      this.nav.setRoot(page.theme);
+    }
+
+  }
+
+  getPageForOpen(value: string): any {
+    return null;
+  }
+
+  getServiceForPage(value: string): IService {
+    return null;
+  }
+}

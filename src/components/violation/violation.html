@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Infração</ion-title>
+    <ion-badge color="accent">{{typeSelected.length}}</ion-badge>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onEvent('onClose', $event)"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment ng-model="categories" full="true" color="secondary" (ionChange)="segmentChanged($event)">
+    <ion-segment-button *ngFor="let type of violations" value={{type.infracao}}>
+      {{type.infracao}}
+    </ion-segment-button>
+  </ion-segment>
+  <div [hidden]="categories != 'Lotes/Edificações'">
+    <ion-list>
+      <ion-item *ngFor="let type of filterItemsOfViolation('Lotes/Edificações')" text-wrap>
+        <ion-label item-title>{{type.title}}</ion-label>
+        <ion-checkbox color="secondary"
+                      (ionChange)="updateTypeSelected(type)"
+                      [ngModel]="type.checked"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div [hidden]="categories != 'Logradouros públicos'">
+    <ion-list>
+      <ion-item *ngFor="let type of filterItemsOfViolation('Logradouros públicos')" text-wrap>
+        <ion-label item-title>{{type.title}}</ion-label>
+        <ion-checkbox color="secondary" (ionChange)="updateTypeSelected(type)"
+                      [ngModel]="type.checked"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div style="margin-bottom: 30px;">
+    <button ion-button full color="secondary" (click)="onEvent('onSaveViolations', typeSelected, $event)">Salvar</button>
+  </div>
+
+</ion-content>

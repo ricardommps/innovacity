@@ -1,0 +1,50 @@
+<ion-grid no-padding>
+  <ion-row *ngIf="data != null">
+    <ion-col col-12>
+      <!--Header Small item + header-->
+      <ion-list-header header-section padding-bottom padding-horizontal>
+        <!--Header Big Title-->
+        <ion-item no-lines>
+          <ion-icon item-start color="secondary" name="refresh"></ion-icon>
+          <!-- Title -->
+          <h2 item-title text-capitalize margin-top text-wrap>Aguardando prazo</h2>
+          <!-- Subtitle -->
+          <p item-subtitle no-margin text-wrap style="font-size: 11px !important;">2 notificações vencendo em 2 dias</p>
+          <ion-badge id="notifications-badge" color="danger" item-end>5</ion-badge>
+        </ion-item>
+      </ion-list-header>
+      <!-- Content -->
+      <ion-list no-margin *ngIf="data.length == 0">
+        <span>Nenhuma ocorrência encontrada</span>
+      </ion-list>
+      <ion-list no-margin *ngIf="data.length > 0">
+        <ion-item-sliding *ngFor="let item of data" #slidingItem>
+          <ion-item border no-lines
+                    (click)="onEvent('onItemClick', item, $event)"
+                    [ngClass]="{'naolido': !item.lida}">
+            <ion-avatar item-left>
+              <text-avatar [text]="item.tipo" [color]="colorAvatar" item-left style="margin-top:25px;"></text-avatar>
+            </ion-avatar>
+            <!-- Title -->
+            <h2>{{item.tipo}}</h2>
+            <div style="margin-top: 3px;">
+              <h3>{{item.endereco}}</h3>
+              <h4 item-subtitle>{{item.origem}}: {{item.descricao}}</h4>
+            </div>
+
+            <ion-note item-end class="ionNoteDate"><span>{{item.data_abertura  | date: 'dd/MM/yyyy'}}</span></ion-note>
+
+            <!--<ion-note item-end class="ionNoteKm"><span>1,5 km</span></ion-note>-->
+            <!-- Icon -->
+          </ion-item>
+          <!--Action Button-->
+          <ion-item-options no-lines>
+            <button ion-button color="green" text-capitalize padding>
+              Ver detalhes
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

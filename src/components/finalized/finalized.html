@@ -1,0 +1,32 @@
+<ion-grid no-padding>
+  <ion-row *ngIf="data != null">
+    <ion-col col-12>
+      <ion-list no-margin>
+        <ion-item-sliding *ngFor="let item of data.items" #slidingItem>
+          <ion-item border no-lines (click)="onEvent('onItemClick', item, $event)">
+            <ion-avatar item-left>
+              <img src="http://www.emaisgoias.com.br/wp-content/uploads/2017/09/macacofezsilfie.jpg">
+            </ion-avatar>
+            <!-- Title -->
+            <h2>{{item.title}}</h2>
+            <div style="margin-top: 3px;">
+              <h3>{{item.address}}</h3>
+              <h4 item-subtitle>{{item.occurrence}}</h4>
+            </div>
+
+            <ion-note item-end class="ionNoteDate"><span>{{item.date}}</span></ion-note>
+
+            <ion-note item-end class="ionNoteKm"><span>{{item.distance}}</span></ion-note>
+            <!-- Icon -->
+          </ion-item>
+          <!--Action Button-->
+          <ion-item-options no-lines>
+            <button ion-button color="green" text-capitalize padding>
+              Ver detalhes
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,9 @@
+<div class="title-components">
+  <span style="text-transform: none;">Infração</span>
+</div>
+
+<div class="block-insert">
+  {{violations | json}}
+  <span class="compomets"> Default</span>
+  <button ion-fab color="primary" class="buttonFab" (click)="onEvent('onOpenViolation', $event)">+</button>
+</div>

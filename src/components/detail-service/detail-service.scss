@@ -1,0 +1,72 @@
+detail-service {
+  ion-img {
+    width: 60px !important;
+    height: 60px !important;
+    position: absolute;
+    top: 21px;
+  }
+
+  ion-icon{
+    font-size: 25px !important;
+  }
+
+  span{
+    font-size: 19px !important;
+  }
+
+  ion-avatar{
+    margin: 0px;
+  }
+
+  .icon-thumb-up{
+    color: #00A000;
+  }
+
+  .icon-thumb-down{
+    color: red;
+  }
+
+  a {
+    color: #000000;
+  }
+
+  .ionNoteStatus{
+    right: 0px;
+    position: absolute;
+    top: 27px;
+  }
+
+  .ionNoteStatus, span{
+    font-size: 12px;
+  }
+
+  .ionNoteDate{
+    position: relative;
+    top: 20px;
+    left: 0px;
+  }
+
+  #status{
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .open{
+    width: 10px;
+    height: 10px;
+    background: red;
+  }
+
+  .close{
+    width: 10px;
+    height: 10px;
+    background: green;
+  }
+
+  .pending{
+    width: 30px;
+    height: 30px;
+    background: orange;
+  }
+}

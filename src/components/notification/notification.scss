@@ -1,0 +1,42 @@
+notification {
+  .title-components {
+    color: theme-colors('textColors', 'secondary');
+    font-size: 16px;
+    font-weight: normal;
+    clear: both;
+    display: block;
+    margin: 15px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid theme-colors('textColors', 'accentLight');
+    padding-bottom: 17px;
+  }
+
+  .title-components span{
+    text-transform: none;
+    color: black;
+    font-size: 20px;
+  }
+
+  .block-insert {
+    color: theme-colors('textColors', 'secondary');
+    font-size: 16px;
+    font-weight: normal;
+    clear: both;
+    display: block;
+    margin: 15px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid theme-colors('textColors', 'accentLight');
+    padding-bottom: 10px;
+  }
+
+
+  .fab-md-primary{
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    right: 17px;
+    top: 79px;
+
+  }
+
+}

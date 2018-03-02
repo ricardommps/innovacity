@@ -1,0 +1,57 @@
+<ion-grid no-padding>
+  <ion-row *ngIf="data != null">
+    <ion-col col-12>
+      <ion-list-header header-section padding-bottom padding-horizontal>
+        <text-avatar [text]='data.tipo' [color]="colorAvatar" item-left style="margin-top:25px;"></text-avatar>
+        <div>
+          <h2 item-title text-capitalize margin-top text-wrap>{{data.tipo}}</h2>
+          <p item-subtitle no-margin text-wrap style="font-size: 11px !important;">{{data.numero_atendimento}}</p>
+        </div>
+        <ion-note item-end class="ionNoteStatus">
+          <div id="status" [ngClass]="{
+          'open':data.status == 'Atendimento pendente',
+          'close':data.status == 'Atendimento finalizado',
+          'pending':data.status == 'Notificado'
+          }"></div>
+        </ion-note>
+        <ion-note item-end class="ionNoteDate"><span style="font-size: 12px !important;">{{data.data_abertura | date: 'dd/MM/yyyy'}}</span></ion-note>
+      </ion-list-header>
+      <ion-list no-margin>
+        <ion-item-sliding>
+          <ion-item no-lines>
+            <ion-icon name="pin"></ion-icon>
+            <span>{{data.endereco}}</span>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-icon name="md-person"></ion-icon>
+            <span>{{data.nome_solicitante}}</span>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-icon name="md-attach"></ion-icon>
+            <span *ngFor="let attach of data.anexos">
+              <a href="{{ attach }}" onclick="window.open(this.href, '_system', 'location=yes');" >{{ attach.split('.').pop() }}</a>
+            </span>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+      <div style="padding: 7px 28px 0px 28px;">
+        <p card-body-text>
+          {{data.descricao}}
+        </p>
+      </div>
+
+      <div style="padding: 7px 28px 28px 28px;">
+        <ion-icon icon-large>
+          <i class="icon icon-thumb-up" (click)="onEvent('onEndService', data, $event)"></i>
+        </ion-icon>
+
+        <ion-icon icon-large (click)="onEvent('onOpenService', data, $event)">
+          <i class="icon icon-thumb-down"></i>
+        </ion-icon>
+      </div>
+
+
+
+    </ion-col>
+  </ion-row>
+</ion-grid>

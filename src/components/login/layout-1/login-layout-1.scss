@@ -1,0 +1,77 @@
+/*  #Style Login + logo 1
+================================================*/
+login-layout-1 {
+  .content-md {
+    color: theme-colors('textColors', 'accentDark') !important;
+    background-color: theme-colors('mainColors', 'accent') !important;
+  }
+
+  .content-ios {
+    color: theme-colors('textColors', 'accentDark') !important;
+    background-color: theme-colors('mainColors', 'accent') !important;
+  }
+
+  .item-md{
+    color: theme-colors('textColors', 'accentDark') !important;
+    background-color: theme-colors('mainColors', 'accent') !important;
+  }
+  .item-ios{
+    color: theme-colors('textColors', 'accentDark') !important;
+    background-color: theme-colors('mainColors', 'accent') !important;
+  }
+  .text-input::-moz-placeholder {
+    color: white !important;
+  }
+
+  .alert-ios .alert-button {
+    color: #000000 !important;
+  }
+
+  span{
+    color: theme-colors('textColors', 'accent') !important;
+  }
+
+  ion-grid,
+  ion-row {
+    height: 100%;
+  }
+  // Settings Logo
+  img {
+    max-width: 72px;
+    max-height: 72px;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  [stacked] {
+    font-size: 10px !important;
+  }
+
+  p {
+    font-size: font-size-text('h5') !important;
+    line-height: 12px;
+    font-weight: 100;
+  }
+
+  [button-clear] {
+    padding: 0 5px;
+  }
+  // Settings Button
+  [bottom-form] {
+    button:nth-child(1) {
+      margin: 12px 0;
+    }
+
+    [default-button] {
+      font-weight: 400 !important;
+    }
+  }
+
+  .button-md-primary {
+    color: #000 !important;
+  }
+
+  login-layout-1 span {
+    color: #000 !important;
+  }
+}

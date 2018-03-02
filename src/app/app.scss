@@ -1,6 +1,4 @@
-// http://ionicframework.com/docs/theming/
-
-
+// http://ionicframework.com/docs/v2/theming/
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+// Settings Style Main Meni
+[header-background-image] {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    @include darkening-blend-mode;
+    [header-title] {
+        padding-right: 10%;
+    }
+    img {
+        position: relative;
+        display: block;
+        max-width: 90px;
+        border-radius: 50%;
+
+    }
+    p {
+        font-size: 18px !important;
+        padding-left: 6px;
+        color: theme-colors('textColors', 'secondaryBase');
+    }
+
+  .categoria{
+    font-size: 15px !important;
+    color: #e8e7e8;
+  }
+}
+
+// Settings Style distance icon text
+[main-menu] .item-inner {
+    margin-left: 6px !important;
+}
+
+text-avatar, text-avatar::after {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 19.1rem !important;
+}

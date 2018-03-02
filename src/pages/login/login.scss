@@ -1,0 +1,13 @@
+page-login {
+  login-layout-1 img {
+    max-width: 220px;
+    max-height: 220px;
+    position: relative;
+    left: 50px;
+  }
+  $alert-input-placeholder-color:(#000000);
+
+  .alert .alert-wrapper {
+    background-color: #F35E5D;
+  }
+}

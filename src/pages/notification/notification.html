@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!--Content-->
+<ion-content padding>
+  <ion-grid>
+    <ion-row padding-horizontal align-items-start>
+      <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <h4 ion-text color="accent" title>Endereço do notificado</h4>
+        <!---Input field username-->
+        <ion-row>
+          <ion-col>
+            <ion-item no-padding>
+              <ion-label color="dark" stacked>Logradouro</ion-label>
+              <ion-input required placeholder="Logradouro" type="text" [(ngModel)]="params.data.logradouro"></ion-input>
+              <ion-icon name="pin" item-right (click)="getCurrentPosition()"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item no-padding>
+              <ion-label color="dark" stacked>Nº</ion-label>
+              <ion-input required placeholder="Nº" type="text" [(ngModel)]="numero"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item no-padding>
+              <ion-label color="dark" stacked>Compl.</ion-label>
+              <ion-input required placeholder="Compl" type="text" [(ngModel)]="complemento"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item no-padding>
+              <ion-label color="dark" stacked>Lot.</ion-label>
+              <ion-input required placeholder="Lot" type="text" [(ngModel)]="lotiamento"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item no-padding>
+              <ion-label color="dark" stacked>Quad.</ion-label>
+              <ion-input required placeholder="Quad" type="text" [(ngModel)]="quadra"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <div>
+          <ion-row style="padding-top: 25px">
+            <h4 ion-text color="accent" title>Intimado</h4>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item no-padding>
+                <ion-label color="dark" stacked>Nome</ion-label>
+                <ion-input required placeholder="Nome" type="text" [(ngModel)]="nome"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item no-padding>
+                <ion-label color="dark" stacked>CPF</ion-label>
+                <ion-input required placeholder="CPF" type="text" [(ngModel)]="cpf"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div>
+          <ion-row style="padding-top: 25px">
+            <h4 ion-text color="accent" title>Prazo para regularizaçã</h4>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item no-padding>
+                <ion-label color="dark" stacked>Prazo</ion-label>
+                <ion-input required placeholder="Prazo" type="number" [(ngModel)]="prazo"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+          <ion-row style="padding-top: 25px">
+            <h4 ion-text color="accent" title>Infração</h4>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span class="compomets">{{violations.length == 0 ? "Sem infração vinculada" : (violations.length) +" inffrações selecionadas"}}</span>
+              <button ion-fab color="primary" class="buttonFab" (click)="onOpenViolation()">+</button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+      <button ion-button full color="secondary" (click)="onSave()">Salvar</button>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

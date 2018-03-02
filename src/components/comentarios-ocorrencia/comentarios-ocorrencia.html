@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fechar Ocorrência</ion-title>
+       <ion-buttons end>
+      <button ion-button icon-only (click)="onEvent('onClose', $event)"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid no-padding>
+    <ion-row *ngIf="data != null">
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+        <ion-card text-left>
+          <ion-card-content>
+            <ion-card-title>
+              <!--Card Title-->
+              <h2 card-title>{{data.tipo}}</h2>
+              <!--Card Subtitle-->
+              <h1 card-subtitle>{{data.numero_atendimento}}</h1>
+              <!--Card Body Text-->
+              <ion-textarea placeholder="Comentarios"
+                            [(ngModel)]="comentarioData.comentario" name="note" autocomplete="on" autocorrect="on"></ion-textarea>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <button ion-button default-button full color="secondary" style="margin-top: 20px; text-transform: none;" (click)="onEvent('onCloseOccurence', comentarioData, $event)">Salvar</button>
+  </ion-grid>
+
+</ion-content>
