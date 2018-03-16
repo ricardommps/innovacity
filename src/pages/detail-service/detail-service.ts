@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import {ComentariosOcorrenciaPage} from "../comentarios-ocorrencia/comentarios-ocorrencia";
 import { OcorrenciasService } from '../../services/ocorrencias';
+import { NotificacaoService } from '../../services/notificacao';
 
 @IonicPage()
 @Component({
   selector: 'page-detail-service',
   templateUrl: 'detail-service.html',
-  providers: [OcorrenciasService]
+  providers: [OcorrenciasService, NotificacaoService]
 })
 export class DetailServicePage {
   params: any = {};
@@ -20,12 +21,23 @@ export class DetailServicePage {
               public navParams: NavParams,
               private modalCtrl: ModalController,
               private alertCtrl: AlertController,
-              public ocorrenciaService: OcorrenciasService) {
+              public ocorrenciaService: OcorrenciasService,
+              public notificacao: NotificacaoService) {
     //this.idService = 33;
     this.items = navParams.get('item');
-    console.log(this.items)
+
+    if(!this.items.lida){
+      console.log(this.items)
+      if(this.items.status_id == 1){
+        ocorrenciaService.occurenceRead(this.items.id).subscribe(() => {
+        })
+      }else if(this.items.status_id == 3){
+        notificacao.notificationRead(this.items.id_notificacao).subscribe(() => {
+        })
+      }
+    }
+
     this.params = {
-      title:"Atendimento",
       events:{
         'onEndService': function(occurence: any) {
           alertComentarios(occurence)
@@ -100,9 +112,12 @@ export class DetailServicePage {
     }
   }
 
-
-
-  ionViewDidLoad() {
+  titlePage(status){
+    console.log(">>>STATUS",status)
+    return status
   }
+
+
+
 
 }

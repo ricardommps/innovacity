@@ -12,94 +12,124 @@
     <ion-row padding-horizontal align-items-start>
       <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
         <h4 ion-text color="accent" title>Endereço do notificado</h4>
-        <!---Input field username-->
-        <ion-row>
-          <ion-col>
-            <ion-item no-padding>
-              <ion-label color="dark" stacked>Logradouro</ion-label>
-              <ion-input required placeholder="Logradouro" type="text" [(ngModel)]="params.data.logradouro"></ion-input>
-              <ion-icon name="pin" item-right (click)="getCurrentPosition()"></ion-icon>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item no-padding>
-              <ion-label color="dark" stacked>Nº</ion-label>
-              <ion-input required placeholder="Nº" type="text" [(ngModel)]="numero"></ion-input>
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item no-padding>
-              <ion-label color="dark" stacked>Compl.</ion-label>
-              <ion-input required placeholder="Compl" type="text" [(ngModel)]="complemento"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item no-padding>
-              <ion-label color="dark" stacked>Lot.</ion-label>
-              <ion-input required placeholder="Lot" type="text" [(ngModel)]="lotiamento"></ion-input>
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item no-padding>
-              <ion-label color="dark" stacked>Quad.</ion-label>
-              <ion-input required placeholder="Quad" type="text" [(ngModel)]="quadra"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-
-        <div>
-          <ion-row style="padding-top: 25px">
-            <h4 ion-text color="accent" title>Intimado</h4>
-          </ion-row>
+        <form [formGroup]="notificacaoForm">
           <ion-row>
             <ion-col>
-              <ion-item no-padding>
-                <ion-label color="dark" stacked>Nome</ion-label>
-                <ion-input required placeholder="Nome" type="text" [(ngModel)]="nome"></ion-input>
+              <ion-item no-padding margin-top [ngClass]="{'error-border':!notificacaoForm.controls.logradouro.valid && notificacaoForm.controls.logradouro.touched}">
+                <ion-label color="dark" stacked floating>Logradouro</ion-label>
+                <ion-input required type="text" [(ngModel)]="params.data.logradouro" formControlName="logradouro"></ion-input>
+                <ion-icon name="pin" item-right (click)="getCurrentPosition()"></ion-icon>
+              </ion-item>
+              <ion-item no-padding *ngIf="notificacaoForm.controls.logradouro.hasError('required') && notificacaoForm.controls.logradouro.touched">
+                <p>Desculpe, o campo logradouro é obrigatório!</p>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item no-padding>
-                <ion-label color="dark" stacked>CPF</ion-label>
-                <ion-input required placeholder="CPF" type="text" [(ngModel)]="cpf"></ion-input>
+                <ion-label color="dark" stacked>Nº</ion-label>
+                <ion-input placeholder="Nº" type="text" [(ngModel)]="params.data.numero" formControlName="numero"></ion-input>
               </ion-item>
             </ion-col>
-          </ion-row>
-        </div>
-
-        <div>
-          <ion-row style="padding-top: 25px">
-            <h4 ion-text color="accent" title>Prazo para regularizaçã</h4>
+            <ion-col>
+              <ion-item no-padding>
+                <ion-label color="dark" stacked>Compl.</ion-label>
+                <ion-input placeholder="Compl" type="text" [(ngModel)]="params.data.complemento" formControlName="complemento"></ion-input>
+              </ion-item>
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item no-padding>
-                <ion-label color="dark" stacked>Prazo</ion-label>
-                <ion-input required placeholder="Prazo" type="number" [(ngModel)]="prazo"></ion-input>
+                <ion-label color="dark" stacked>Lot.</ion-label>
+                <ion-input placeholder="Lot" type="text" [(ngModel)]="params.data.lote" formControlName="lote"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item no-padding>
+                <ion-label color="dark" stacked>Quad.</ion-label>
+                <ion-input placeholder="Quad" type="text" [(ngModel)]="params.data.quadra" formControlName="quadra"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
-        </div>
 
-        <div style="margin-bottom: 10px;">
-          <ion-row style="padding-top: 25px">
-            <h4 ion-text color="accent" title>Infração</h4>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <span class="compomets">{{violations.length == 0 ? "Sem infração vinculada" : (violations.length) +" inffrações selecionadas"}}</span>
-              <button ion-fab color="primary" class="buttonFab" (click)="onOpenViolation()">+</button>
-            </ion-col>
-          </ion-row>
-        </div>
+          <ion-buttons>
+            <button ion-button color="secondary"
+                    [disabled]="params.data.logradouro ? (params.data.logradouro.length > 0 ? false : true) : true"
+                    (click)="searchIntimate(notificacaoForm.value)">
+              <ion-icon name="search"></ion-icon>
+              Buscar Proprietário
+            </button>
+          </ion-buttons>
+
+          <div>
+            <ion-row style="padding-top: 25px">
+              <h4 ion-text color="accent" title>Intimado</h4>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item no-padding>
+                  <ion-label color="dark" stacked>Nome</ion-label>
+                  <ion-input placeholder="Nome" type="text"
+                             [(ngModel)]="params.data.nome_razaosocial_proprietario"
+                             formControlName="nome_razaosocial_proprietario"
+                  ></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item no-padding>
+                  <ion-label color="dark" stacked>CPF</ion-label>
+                  <ion-input placeholder="CPF"
+                             type="text"
+                             [(ngModel)]="params.data.cpf_cnpj_proprietario"
+                             formControlName="cpf_cnpj_proprietario"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div>
+            <ion-row style="padding-top: 25px">
+              <h4 ion-text color="accent" title>Prazo para regularizaçã</h4>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item no-padding margin-top [ngClass]="{'error-border':!notificacaoForm.controls.prazo.valid && notificacaoForm.controls.prazo.touched}">
+                  <ion-label color="dark" stacked>Prazo</ion-label>
+                  <ion-input required placeholder="Prazo" type="number" [(ngModel)]="params.data.prazo" formControlName="prazo"></ion-input>
+                </ion-item>
+                <ion-item no-padding *ngIf="notificacaoForm.controls.prazo.hasError('required') && notificacaoForm.controls.prazo.touched">
+                  <p>Desculpe, o prazo é obrigatório!</p>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <ion-row style="padding-top: 25px">
+              <h4 ion-text color="accent" title>Infração</h4>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span class="compomets">{{violations.length == 0 ? "Sem infração vinculada" : (violations.length) +" infrações selecionadas"}}</span>
+                <button ion-fab color="primary" class="buttonFab" (click)="onOpenViolation()">+</button>
+              </ion-col>
+              <ion-item no-padding margin-top style="width: 0px; height: 0px;"
+                        [ngClass]="{'error-border':!notificacaoForm.controls.violations.valid && notificacaoForm.controls.violations.touched}">
+                <ion-input required formControlName="violations" type="hidden"></ion-input>
+              </ion-item>
+              <ion-item no-padding *ngIf="notificacaoForm.controls.violations.hasError('required') && notificacaoForm.controls.violations.touched">
+                <p>Selecione ao menos uma infração!</p>
+              </ion-item>
+            </ion-row>
+          </div>
+          <button ion-button color="secondary" [disabled]="!notificacaoForm.valid" (click)="onSave()">
+            Salvar
+          </button>
+
+        </form>
       </ion-col>
-      <button ion-button full color="secondary" (click)="onSave()">Salvar</button>
     </ion-row>
   </ion-grid>
 

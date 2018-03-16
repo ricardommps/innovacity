@@ -9,9 +9,9 @@
         </div>
         <ion-note item-end class="ionNoteStatus">
           <div id="status" [ngClass]="{
-          'open':data.status == 'Atendimento pendente',
-          'close':data.status == 'Atendimento finalizado',
-          'pending':data.status == 'Notificado'
+          'open':data.status_id == '1',
+          'close':data.status_id  == '2',
+          'pending':data.status_id == '3'
           }"></div>
         </ion-note>
         <ion-note item-end class="ionNoteDate"><span style="font-size: 12px !important;">{{data.data_abertura | date: 'dd/MM/yyyy'}}</span></ion-note>
@@ -40,7 +40,17 @@
         </p>
       </div>
 
-      <div style="padding: 7px 28px 28px 28px;">
+      <div style="padding: 7px 28px 28px 28px;" *ngIf="data.status_id == 1">
+        <ion-icon icon-large>
+          <i class="icon icon-thumb-up" (click)="onEvent('onEndService', data, $event)"></i>
+        </ion-icon>
+
+        <ion-icon icon-large (click)="onEvent('onOpenService', data, $event)">
+          <i class="icon icon-thumb-down"></i>
+        </ion-icon>
+      </div>
+
+      <div style="padding: 7px 28px 28px 28px;" *ngIf="data.status == 2">
         <ion-icon icon-large>
           <i class="icon icon-thumb-up" (click)="onEvent('onEndService', data, $event)"></i>
         </ion-icon>

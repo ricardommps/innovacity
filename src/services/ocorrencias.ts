@@ -15,13 +15,22 @@ export class OcorrenciasService {
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
+  public getOccurencesClose(userId): Observable<any>  {
+    let url:string = `/ocorrenciasFechadas/${userId}`
+    return this.http.get(url).map((res:Response) => res.json());
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
+
   public closeOccurence(occurenceData): Promise<any>{
     let url:string = `/closeOcorrencia`
     return this.http.post(url,occurenceData).toPromise();
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
-
-
+  public occurenceRead(idOccurence): Observable<any>  {
+    let url:string = `/OccurenceRead/${idOccurence}`
+    return this.http.get(url).map((res:Response) => res.json());
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
 
 }

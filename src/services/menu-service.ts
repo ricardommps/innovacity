@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SpinnerDialog } from 'ionic-native';
 import { AppSettings } from './app-settings';
+import {WaitingPage} from "../pages/waiting/waiting";
 
 @Injectable()
 export class MenuService implements IService {
@@ -17,7 +18,8 @@ export class MenuService implements IService {
     getAllThemes = (): Array<any> => {
       return [
         {"title" : "Dashboard", "theme"  : "DashboardPage",  "icon" : "icon-format-align-justify", "listView" : true, "component": "", "singlePage":true},
-        {"title" : "Finalizados", "theme"  : "FinalizedPage",  "icon" : "icon-clock", "listView" : true, "component": "", "singlePage":true},
+        {"title" : "Finalizados", "theme"  : "FinalizedPage",  "icon" : "icon-thumb-up", "listView" : true, "component": "", "singlePage":true},
+        {"title" : "Aguardando Prazo", "theme"  : "WaitingPage",  "icon" : "icon-clock", "listView" : true, "component": "", "singlePage":true},
         {"title" : "Sair", "icon" : "icon-logout"}
       ];
     };

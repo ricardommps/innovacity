@@ -1,6 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { Content } from 'ionic-angular';
-import { TextAvatarDirective } from '../../directives/text-avatar/text-avatar';
 
 @Component({
   selector: 'detail-service',

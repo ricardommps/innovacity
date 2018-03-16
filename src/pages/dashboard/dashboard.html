@@ -11,8 +11,9 @@
     <ion-refresher-content>
     </ion-refresher-content>
   </ion-refresher>
-  <dashboard
+  <dashboard *ngIf="params.data"
     [data]="params.data"
+    [notificationOverdue]="params.notificationOverdue"
     [events]="params.events">
   </dashboard>
 </ion-content>

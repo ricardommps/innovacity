@@ -10,6 +10,9 @@ import { ViolationComponent } from './violation/violation';
 import { FinalizedComponent } from './finalized/finalized';
 import { ComentariosOcorrenciaComponent } from './comentarios-ocorrencia/comentarios-ocorrencia';
 import { FinalizadosComponent } from './finalizados/finalizados';
+import { IntimateComponent } from './intimate/intimate';
+import { WaitingComponent } from './waiting/waiting';
+import { TimelineComponent } from './timeline/timeline';
 @NgModule({
 	declarations: [ExpandableComponent,
     CamerasComponent,
@@ -21,7 +24,10 @@ import { FinalizadosComponent } from './finalizados/finalizados';
     ViolationComponent,
     FinalizedComponent,
     ComentariosOcorrenciaComponent,
-    FinalizadosComponent],
+    FinalizadosComponent,
+    IntimateComponent,
+    WaitingComponent,
+    TimelineComponent],
 	imports: [],
 	exports: [ExpandableComponent,
     CamerasComponent,
@@ -33,6 +39,9 @@ import { FinalizadosComponent } from './finalizados/finalizados';
     ViolationComponent,
     FinalizedComponent,
     ComentariosOcorrenciaComponent,
-    FinalizadosComponent]
+    FinalizadosComponent,
+    IntimateComponent,
+    WaitingComponent,
+    TimelineComponent]
 })
 export class ComponentsModule {}

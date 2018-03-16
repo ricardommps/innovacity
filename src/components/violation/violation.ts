@@ -12,7 +12,8 @@ export class ViolationComponent {
   @Input() violationsSelected: any;
   @ViewChild(Content)
   content: Content;
-  categories = '';
+  categories:any = null;
+  categorieSelected:any = null;
   typeSelected = [];
   violations = [];
   constructor() {
@@ -21,48 +22,49 @@ export class ViolationComponent {
 
   onEvent(event: string, item: any, e: any) {
     if (this.events[event]) {
-      this.events[event](item);
+      this.events[event](this.typeSelected ? this.typeSelected : []);
     }
   }
 
-  segmentChanged($event) {
-    this.categories = $event._value
+  onSelectChange(selectedValue: any) {
+    console.log('Selected', selectedValue);
+    this.violations.map((violation) => {
+      console.log(violation)
+      if(selectedValue == violation.id_categoria){
+        violation.checked = true
+        this.categorieSelected = violation
+      }
+    })
+    console.log(this.categorieSelected);
   }
-
   ngAfterContentInit(){
-    this.categories = this.data[0].infracao
+    this.categories = Object.assign({}, this.data[0])
+    this.categorieSelected = this.categories
     if(this.data){
-      this.violations = Object.assign([], this.data)
+      this.violations = this.data
       this.typeSelected = this.violationsSelected ? this.violationsSelected : []
+      console.log(">>>this.typeSelected",this.typeSelected)
       this.violations.map((violation) => {
-        violation.tipos.map((violationTipo) => {
+        violation.infracao.map((infracao) => {
           this.typeSelected.map((violationSelected) => {
-            if(violationSelected.id == violationTipo.id){
-              violationTipo.checked = true
+            if(violationSelected.codigo == infracao.codigo){
+              infracao.checked = true
             }
           })
         })
       })
-      console.log(this.violations);
     }
   }
 
-  filterItemsOfViolation(type){
-    let dataFilter = this.data.filter(x => x.infracao == type)
-    return dataFilter[0].tipos
-  }
-
-
   updateTypeSelected(item) {
-    let index = this.typeSelected.map((item) => { return item.title;}).indexOf(item.title)
+    console.log(item)
+    let index = this.typeSelected.map((item) => { return item.codigo}).indexOf(item.codigo )
     if(index < 0){
+      item.checked = true
       this.typeSelected.push(item)
     }else{
       this.typeSelected.splice(index, 1);
     }
-
-    console.log("<<updateTypeSelected<<")
-    console.log(this.typeSelected)
 
   }
 

@@ -18,16 +18,16 @@
             <ion-input required type="text" placeholder="{{data.usuario}}" [(ngModel)]="usuario" formControlName="usuario"></ion-input>
           </ion-item>
           <ion-item *ngIf="authForm.controls.usuario.hasError('required') && authForm.controls.usuario.touched">
-            <p>Sorry, field username is required!</p>
+            <p>Desculpe, o nome de usuário é obrigatório!</p>
           </ion-item>
           <ion-item *ngIf="authForm.controls.usuario.hasError('pattern') && authForm.controls.usuario.touched">
-            <p>Sorry, only small and capital letters are allowed!</p>
+            <p>Desculpe, somente letras minúsculas e maiúsculas são permitidas!</p>
           </ion-item>
           <ion-item *ngIf="authForm.controls.usuario.hasError('minlength') && authForm.controls.usuario.touched">
-            <p>Sorry, minimum username length is 8!</p>
+            <p>Desculpe, o nome de usuário deve conter mais de 8 caracteres!</p>
           </ion-item>
           <ion-item *ngIf="authForm.controls.usuario.hasError('maxlength') && authForm.controls.usuario.touched">
-            <p>Sorry, maximum username length is 30!</p>
+            <p>Desculpe, o nome de usuário não pode conter mais de 30 caracteres!</p>
           </ion-item>
           <!---Input field password-->
           <ion-item padding [ngClass]="{'error-border':!authForm.controls.senha.valid && authForm.controls.senha.touched}">
@@ -35,10 +35,10 @@
             <ion-input required type="password" placeholder="{{data.senha}}" [(ngModel)]="senha" formControlName="senha"></ion-input>
           </ion-item>
           <ion-item *ngIf="authForm.controls.senha.hasError('required') && authForm.controls.senha.touched">
-            <p>Sorry, field password is required!</p>
+            < <p>Desculpe, s senha é obrigatório!</p>
           </ion-item>
           <ion-item *ngIf="authForm.controls.senha.hasError('minlength') && authForm.controls.senha.touched">
-            <p>Sorry, minimum password length is 8!</p>
+            <p>Desculpe, senha deve conter mais de 8 caracteres!</p>
           </ion-item>
           <button ion-button default-button full color="secondary" [disabled]="!authForm.valid" style="margin-top: 20px; text-transform: none;" type="submit">{{data.login}}</button>
 

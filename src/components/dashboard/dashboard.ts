@@ -11,6 +11,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 export class DashboardComponent {
 
   @Input() data: any;
+  @Input() notificationOverdue: any;
   @Input() events: any;
   @ViewChild(Content)
   content: Content;
@@ -26,24 +27,6 @@ export class DashboardComponent {
 
   ngOnInit(){
     console.log(">>",this.data)
-  }
-
-  openDatepicker(){
-    this.keyboard.close();
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
-    }).then(
-      date => {
-        this.today=date.getDate()+'/'+date.getMonth()+'/'+date.getFullYear()},
-      err => console.log('Error occurred while getting date: ', err)
-    );
-  }
-
-  openCamera(){
-    console.log(">>Open camera");
-    //CamerasPage
   }
 
   onEvent(event: string, index: number, e: any) {
@@ -88,6 +71,10 @@ export class DashboardComponent {
     }
   }
 
+  onRefresh(){
+
+  }
+
   toggleGroup() {
     this.showDetalhes = !this.showDetalhes ? true : false
   }
@@ -96,9 +83,4 @@ export class DashboardComponent {
     console.log("<<isGroupShown",group)
     return group.show;
   }
-
-  onItemClick(item: any){
-    console.log(item)
-  }
-
 }

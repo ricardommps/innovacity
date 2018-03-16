@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Selecione um intimado</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onEvent('onClose', $event)">
+        <ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list radio-group>
+    <ion-item *ngFor="let intimado of data; let i= index">>
+      <ion-label item-subtitle padding-top>{{intimado.logradouro_google}}</ion-label>
+      <ion-label item-title text-wrap>{{intimado  | addressnumber}}</ion-label>
+      <ion-label item-subtitle padding-bottom>Proprietário: {{intimado.nome_razaosocial_proprietario}}</ion-label>
+      <ion-radio color="secondary"
+                 [value]="intimado"
+                 (ionSelect)="onEvent('onSelectIntimate',intimado)"
+                 item-end ></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <div style="margin-bottom: 30px;" *ngIf="false">
+    <button ion-button full color="secondary" (click)="onEvent('onSaveViolations', typeSelected, $event)">Salvar</button>
+  </div>
+</ion-content>

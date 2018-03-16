@@ -10,6 +10,7 @@ export class FinalizedComponent {
   @Input() events: any;
   @ViewChild(Content)
   content: Content;
+  colorAvatar = '#4FC3F7';
 
   constructor() {}
 

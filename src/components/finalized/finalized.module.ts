@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { FinalizedComponent } from './finalized';
+import { DirectivesModule } from '../../directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { FinalizedComponent } from './finalized';
   ],
   imports: [
     IonicPageModule.forChild(FinalizedComponent),
+    DirectivesModule,
   ],
   exports: [
     FinalizedComponent

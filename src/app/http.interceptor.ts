@@ -95,13 +95,9 @@ export class InterceptedHttp extends Http {
 
   intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((err, source) => {
-      console.log("-------err",err)
-      console.log("-------source",source)
       if (this.isUnauthorized(err.status)) {
         let auth = this.inj.get(AuthService)
         auth.logout();
-        //logout the user or do what you want
-        //this.authService.logout();
         if (err instanceof Response) {
           return Observable.throw(err.json().message || 'backend server error');
         }

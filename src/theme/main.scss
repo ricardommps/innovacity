@@ -44,6 +44,16 @@ $font-family-ios-base: 'San Francisco';
 // Font sizes
 $font-size-text:( 'h1': 34px, 'h2': 24px, 'h3': 22px, 'h4': 17px, 'h5': 15px, 'h6': 14px, 'p': 14px);
 $alert-input-placeholder-color:(#000000);
+
+$alert-md-radio-label-text-color: #787878;
+$alert-md-radio-label-text-color-checked: #000000;
+
+$alert-md-message-text-color: #787878;
+$alert-md-radio-label-text-color: #787878;
+$alert-md-radio-label-text-color-checked: #787878;
+$alert-md-background-color: color($colors, dark);
+$alert-md-button-text-color: color($colors, dark);
+
 @function font-size-text($key) {
   @return map-get($font-size-text, $key);
 }
@@ -728,5 +738,18 @@ $toolbar-md-title-text-color: theme-colors('mainColors', 'primary');
 
   .alert-input {
     border-bottom: 1px solid #8e8e93 !important;;
+  }
+
+  .alert-md [aria-checked=true] .alert-radio-label {
+    color: #000000 !important;
+  }
+
+  .alert-md [aria-checked=true] .alert-radio-icon {
+    border-color: #787878 !important;
+  }
+
+
+  .alert-md .alert-radio-inner{
+    background-color: #787878 !important;
   }
 }

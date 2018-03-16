@@ -1,0 +1,144 @@
+waiting {
+  .sebm-google-map-container {
+    height: 350px;
+  }
+
+  .item-inner {
+    margin-left: 0 !important;
+  }
+
+  [maps-title] {
+    font-weight: bold !important;
+  }
+
+  [span-small] {
+    margin-top: 6px;
+    display: block;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .icon-star::before {
+    margin: 0 !important;
+  }
+
+  .itemPadding{
+    padding: 20px 16px 1px 16px !important;
+  }
+
+  .subItemPadding{
+    padding: 0px 16px 1px 16px !important;
+  }
+
+  .colunRight{
+    top: 63px;
+    position: absolute;
+    right: 15px;
+    width: 40%;
+  }
+
+  .colunRightBorderLeft{
+    top: 63px;
+    position: absolute;
+    right: 15px;
+    width: 40%;
+    border-left: 1px solid #c7c7cc;;
+    height: 100px;
+  }
+
+  .inputDatePicker{
+    height: 30px;
+    border-bottom: 1px solid;
+    width: 20%;
+  }
+
+
+  .datetime-text{
+    border-bottom: 1px solid #7fabf7 !important;
+  }
+
+  .disable-ripple ion-button-effect {
+    display: none;
+  }
+
+  .buttonDiv{
+    position: absolute;
+    top: 0px;
+    background-color: white !important;
+    height: 50px;
+    width: 160px;
+    right: 0px;
+  }
+
+  .buttonCameras{
+    position: absolute;
+    color: white;
+    top: 14px;
+    left: 18px;
+  }
+
+  [border]::before {
+    content: "";
+    position: absolute;
+    width: 188%;
+    border-bottom: 1px solid #c7c7cc;
+    left: 33px;
+    bottom: 0;
+    right: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  #notification-button {
+    position: relative;
+    width: 42px;
+    top:1px;
+    right: 1px;
+    overflow: visible!important;
+  }
+
+
+  #notifications-badge {
+    background-color: red;
+    position: absolute;
+    top: -3px;
+    right: 0px;
+    border-radius: 100%;
+  }
+
+  .ionNoteDate{
+    right: 4px;
+    position: absolute;
+    top: 6px;
+  }
+
+  .ionNoteDate, span{
+    font-size: 12px;
+  }
+
+  .ionNoteKm{
+    position: relative;
+    top: 0px;
+    left: 4px;
+  }
+
+  ion-item, h1, h2, h3, h4{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 88%;
+  }
+
+  .dueNotification{
+    color: red;
+    font-weight: bold !important;
+    font-size: 14px !important;
+  }
+  .willDueNotification{
+    color: #ffcd00;
+    font-weight: bold !important;
+    font-size: 14px !important;
+  }
+}

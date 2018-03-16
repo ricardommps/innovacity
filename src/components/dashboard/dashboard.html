@@ -2,15 +2,18 @@
   <ion-row *ngIf="data != null">
     <ion-col col-12>
       <!--Header Small item + header-->
-      <ion-list-header header-section padding-bottom padding-horizontal>
+      <ion-list-header header-section padding-bottom padding-horizontal
+                       *ngIf="notificationOverdue ?  notificationOverdue.length > 0 : false">
         <!--Header Big Title-->
-        <ion-item no-lines>
-          <ion-icon item-start color="secondary" name="refresh"></ion-icon>
+        <ion-item no-lines (click)="onEvent('onWaitingClick', notificationOverdue, $event)">
+          <ion-icon item-start color="secondary" name="warning"></ion-icon>
           <!-- Title -->
           <h2 item-title text-capitalize margin-top text-wrap>Aguardando prazo</h2>
           <!-- Subtitle -->
-          <p item-subtitle no-margin text-wrap style="font-size: 11px !important;">2 notificações vencendo em 2 dias</p>
-          <ion-badge id="notifications-badge" color="danger" item-end>5</ion-badge>
+          <p item-subtitle
+             no-margin text-wrap
+             style="font-size: 11px !important;">{{notificationOverdue.length}} notificações vencidas</p>
+          <ion-badge id="notifications-badge" color="danger" item-end>{{notificationOverdue.length}}</ion-badge>
         </ion-item>
       </ion-list-header>
       <!-- Content -->
