@@ -22,14 +22,9 @@ export class ComentariosOcorrenciaPage {
         viewCtrl.dismiss();
       },
       'onCloseOccurence': function(item: any) {
-        console.log(">>onSaveViolations",item);
         viewCtrl.dismiss(item);
       }
     }
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ComentariosOcorrenciaPage');
   }
 
 }

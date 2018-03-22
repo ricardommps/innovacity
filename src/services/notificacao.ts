@@ -37,4 +37,17 @@ export class NotificacaoService {
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
+  public notificationDetails(idOccurence): Observable<any>  {
+    let url:string = `/notificationDetails/${idOccurence}`
+    return this.http.get(url).map((res:Response) => res.json());
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
+
+  public closeNotification(notification): Promise<any>{
+    let url:string = `/closeNotification`
+    return this.http.post(url,notification).toPromise();
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
+
+
 }

@@ -27,15 +27,12 @@ export class ViolationComponent {
   }
 
   onSelectChange(selectedValue: any) {
-    console.log('Selected', selectedValue);
     this.violations.map((violation) => {
-      console.log(violation)
       if(selectedValue == violation.id_categoria){
         violation.checked = true
         this.categorieSelected = violation
       }
     })
-    console.log(this.categorieSelected);
   }
   ngAfterContentInit(){
     this.categories = Object.assign({}, this.data[0])
@@ -43,7 +40,6 @@ export class ViolationComponent {
     if(this.data){
       this.violations = this.data
       this.typeSelected = this.violationsSelected ? this.violationsSelected : []
-      console.log(">>>this.typeSelected",this.typeSelected)
       this.violations.map((violation) => {
         violation.infracao.map((infracao) => {
           this.typeSelected.map((violationSelected) => {
@@ -57,7 +53,6 @@ export class ViolationComponent {
   }
 
   updateTypeSelected(item) {
-    console.log(item)
     let index = this.typeSelected.map((item) => { return item.codigo}).indexOf(item.codigo )
     if(index < 0){
       item.checked = true

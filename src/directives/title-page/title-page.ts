@@ -6,7 +6,6 @@ import { Directive, ElementRef } from '@angular/core';
 export class TitlePageDirective {
 
   constructor(Element: ElementRef) {
-    console.log(Element);
   }
 
 }

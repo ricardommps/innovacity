@@ -5,7 +5,6 @@ export class AddressNumber implements PipeTransform {
   transform(value: any, args: string[]): any {
     if (!value) return value;
     var strReturn = ""
-    console.log(value)
     if(value.numero){
       strReturn = strReturn + " Nº: "+value.numero
     }

@@ -20,14 +20,14 @@ export class ViolationPage {
               public viewCtrl: ViewController,
               public infracoes:InfracoesService) {
     this.violationsSelected = navParams.get('violations') ? navParams.get('violations') : {};
-    console.log(this.violationsSelected);
+
     this.params = {
             events:{
         'onClose': function(item: any) {
           viewCtrl.dismiss(item ? item : []);
         },
         'onSaveViolations': function(item: any) {
-          console.log(">>onSaveViolations",item);
+
           viewCtrl.dismiss(item);
         },
       }
@@ -41,7 +41,6 @@ export class ViolationPage {
   loadInfracoes(){
     this.infracoes.getInfrcoes().subscribe((result) => {
       if(result.success){
-        console.log(result.data)
         this.params.data = result.data
       }
     })

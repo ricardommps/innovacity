@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController }
 import {ComentariosOcorrenciaPage} from "../comentarios-ocorrencia/comentarios-ocorrencia";
 import { OcorrenciasService } from '../../services/ocorrencias';
 import { NotificacaoService } from '../../services/notificacao';
+import {AuthService} from "../../services/auth.service";
 
 @IonicPage()
 @Component({
@@ -13,7 +14,8 @@ import { NotificacaoService } from '../../services/notificacao';
 export class DetailServicePage {
   params: any = {};
   colorAvatar = '#4FC3F7';
-  items: any ={};
+  ocorrencia: any ={};
+  items: any = {};
   public idService;
   text: string;
 
@@ -22,41 +24,110 @@ export class DetailServicePage {
               private modalCtrl: ModalController,
               private alertCtrl: AlertController,
               public ocorrenciaService: OcorrenciasService,
+              public auth: AuthService,
               public notificacao: NotificacaoService) {
-    //this.idService = 33;
-    this.items = navParams.get('item');
+    this.ocorrencia = navParams.get('ocorrencia');
+    if(this.ocorrencia){
+     if(this.ocorrencia.status_id == 1){
+        this.ocorrenciaService.occurence(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
+          if(occurence.success){
+            this.items = occurence.data
+            if(!this.items[0].lida){
+              if(this.items[0].status_id == 1){
+                ocorrenciaService.occurenceRead(this.items[0].id).subscribe(() => {
+                })
+              }
+            }
+          }
+        })
+     }else if(this.ocorrencia.status_id == 2){
+       ocorrenciaService.occurenceClose(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
+         if(occurence.success){
+           this.items = occurence.data
+         }
+       })
+     }else{
+       notificacao.notificationDetails(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
+         if(occurence.success){
+           this.items = occurence.data
+         }
+       })
 
-    if(!this.items.lida){
-      console.log(this.items)
-      if(this.items.status_id == 1){
-        ocorrenciaService.occurenceRead(this.items.id).subscribe(() => {
-        })
-      }else if(this.items.status_id == 3){
-        notificacao.notificationRead(this.items.id_notificacao).subscribe(() => {
-        })
-      }
+     }
     }
 
     this.params = {
       events:{
         'onEndService': function(occurence: any) {
-          alertComentarios(occurence)
+          alertComments(occurence)
+        },
+        'onCloseNotification': function(notification: any) {
+          console.log("---onCloseNotification")
+          closeNotification(notification)
+        },
+        'onEndNotification': function(occurence: any) {
+          alertComments(occurence)
         },
         'onOpenService': function(item: any) {
-          console.log(item)
           navCtrl.push("NotificationPage",{idService:item.id});
         },
       }
     }
 
-    function alertComentarios(occurence){
-      console.log(occurence)
+
+    function endNotification(notification){
+      let modal = modalCtrl.create('ComentariosOcorrenciaPage',{occurence:notification})
+      modal.onDidDismiss(data => {
+        var dataClose = {
+          "comentario": data.comentario,
+          "id_ocorrencia": data.ocorrenciaData.id,
+          "id_usuario" : auth.getuserId()
+        }
+
+        ocorrenciaService.closeOccurence(dataClose)
+          .then((result) => {
+            if (result.json().success) {
+              successCloseNotification();
+            }else{
+              error(result.json().data);
+            }
+
+          }).catch((err) => {
+          error(err);
+        });
+
+      });
+      modal.present();
+    }
+
+    function closeNotification(notification){
+        console.log('-----closeNotification',notification)
+      var dataClose = {
+        "id_ocorrencia": notification.id_ocorrencia,
+        "id_usuario" : auth.getuserId()
+      }
+
+      notificacao.closeNotification(dataClose)
+        .then((result) => {
+          if (result.json().success) {
+            successCloseNotification();
+          }else{
+            error(result.json().data);
+          }
+
+        }).catch((err) => {
+        error(err);
+      });
+
+    }
+
+    function alertComments(occurence){
       let modal = modalCtrl.create('ComentariosOcorrenciaPage',{occurence:occurence})
       modal.onDidDismiss(data => {
-       console.log(data);
        var dataOccurence = {
-         "comentario":data.comentario,
-         "id_ocorrencia":data.ocorrenciaData.id
+         "comentario": data.comentario,
+         "id_ocorrencia": data.ocorrenciaData.id,
+         "id_usuario" : auth.getuserId()
        }
 
         ocorrenciaService.closeOccurence(dataOccurence)
@@ -70,14 +141,23 @@ export class DetailServicePage {
           }).catch((err) => {
               error(err);
           });
-        /*ocorrenciaService.closeOccurence(dataOccurence)
-          .then((result) => {
-            console.log(result)
-          }).catch((err) => {
-            console.log(err)
-        });*/
+
       });
       modal.present();
+    }
+
+    function successCloseNotification(){
+      let alert = alertCtrl.create({
+        title: 'Sucesso!',
+        subTitle: 'Notificação finalizada com sucesso!',
+        buttons: [{
+          text: 'Fechar',
+          handler: () => {
+            navCtrl.setRoot("WaitingPage");
+          }
+        }]
+      });
+      alert.present();
     }
 
     function success(){
@@ -113,8 +193,11 @@ export class DetailServicePage {
   }
 
   titlePage(status){
-    console.log(">>>STATUS",status)
     return status
+  }
+
+  isEmptyObject(obj) {
+    return (obj && (Object.keys(obj).length === 0));
   }
 
 

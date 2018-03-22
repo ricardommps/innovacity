@@ -15,8 +15,6 @@ export class TimelineComponent {
   text: string;
 
   constructor() {
-    console.log('Hello TimelineComponent Component');
-    this.text = 'Hello World';
   }
 
 }

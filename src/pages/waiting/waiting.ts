@@ -18,9 +18,14 @@ export class WaitingPage {
               public notificacao: NotificacaoService,
               public auth: AuthService,) {
     this.params.events = {
-      onItemClick: function(item) {
-        console.log("onItemClick",item);
-        navCtrl.push("DetailServicePage",{item:item});
+      onItemClick: function(notification) {
+        console.log("---------",notification)
+        navCtrl.push("DetailServicePage",{
+          ocorrencia:{
+            id_ocorrencia:notification.id_ocorrencia,
+            status_id : notification.status_id
+          }
+        });
       },
     };
   }
@@ -31,7 +36,6 @@ export class WaitingPage {
     })
     this.notificacao.getNotification(this.userId).subscribe((result) => {
       if(result.success){
-        console.log(result.data)
         this.items = result.data
       }
     })

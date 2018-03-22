@@ -12,10 +12,8 @@ export class TextAvatarDirective {
   @Input() text: string;
   @Input() color: string;
   ngOnChanges(changes: SimpleChanges) {
-    console.log(">>>ngOnChanges<<<",changes)
     let text = changes['text'] ? changes['text'].currentValue : null;
     let color = changes['color'] ? changes['color'].currentValue : null;
-
     this.element.nativeElement.setAttribute("value", this.extractFirstCharacter(text));
     this.element.nativeElement.style.backgroundColor = this.backgroundColorHexString(color, text);
   }
@@ -23,8 +21,6 @@ export class TextAvatarDirective {
   private extractFirstCharacter(text: string): string {
     if(text){
       var res = text.split(" ");
-      console.log(res);
-      console.log(res.length);
       if(res.length <= 1){
         var textStr = res[0] ? res[0].charAt(0).toLocaleUpperCase() : ''
       }else{

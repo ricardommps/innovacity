@@ -18,14 +18,9 @@ export class IntimateComponent {
   }
 
   onEvent(event: string, item: any, e: any) {
-    console.log("onEvent",event)
     if (this.events[event]) {
       this.events[event](item);
     }
-  }
-
-  ngAfterContentInit(){
-    console.log("Intimados",this.data)
   }
 
 }

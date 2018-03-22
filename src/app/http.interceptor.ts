@@ -75,11 +75,8 @@ export class InterceptedHttp extends Http {
         options.headers.append('Authorization', token);
       }
       options.headers.append('Content-Type', 'application/json');
-      console.log(">>>>",options)
       return options;
     }).catch((err) => {
-      console.log("------",err)
-      console.log("------",options)
       return options;
     });
   }
@@ -89,7 +86,6 @@ export class InterceptedHttp extends Http {
   }
 
   private isUnauthorized(status: number): boolean {
-    console.log(">>>isUnauthorized<<<",status)
     return status === 0 || status === 401 || status === 403;
   }
 

@@ -20,12 +20,16 @@ export class DashboardPage {
               public auth: AuthService,
               public notificacao: NotificacaoService) {
     this.params.events = {
-      onItemClick: function(item) {
-        console.log("onItemClick",item);
-        navCtrl.push("DetailServicePage",{item:item});
+      onItemClick: function(ocorrencia) {
+        console.log(">>>>",ocorrencia)
+        navCtrl.push("DetailServicePage",{
+          ocorrencia:{
+            id_ocorrencia:ocorrencia.id,
+            status_id : ocorrencia.status_id
+          }
+        });
       },
       onWaitingClick: function(item) {
-        console.log("onItemClick",item);
         navCtrl.push("WaitingPage");
       }
     };
@@ -40,10 +44,8 @@ export class DashboardPage {
   }
 
   getOcorrencias(){
-    console.log(">>>>getOcorrencias")
     this.ocorrencias.getOcorrencias(this.userId).subscribe((result) => {
       if(result.success){
-        console.log(result.data)
         this.params.data = result.data
       }else{
         this.params.data = []
@@ -54,16 +56,11 @@ export class DashboardPage {
   getNotificacoes(){
     this.notificacao.getNotificationOverdue(this.userId).subscribe((result) => {
       if(result.success){
-        console.log(result.data)
         this.params.notificationOverdue = result.data
       }else{
         this.params.notificationOverdue = []
       }
     })
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
   }
 
   doRefresh(refresher) {

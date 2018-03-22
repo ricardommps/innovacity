@@ -15,9 +15,14 @@ export class FinalizedPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public ocorrencias: OcorrenciasService, public auth: AuthService) {
 
     this.params.events = {
-      onItemClick: function(item) {
-        console.log("onItemClick",item);
-        navCtrl.push("DetailServicePage",{item:item});
+      onItemClick: function(ocorrencia) {
+        console.log("---------",ocorrencia)
+        navCtrl.push("DetailServicePage",{
+            ocorrencia:{
+              id_ocorrencia:ocorrencia.id_ocorrencia,
+              status_id : ocorrencia.status_id
+            }
+        });
       },
     };
   }
@@ -28,21 +33,15 @@ export class FinalizedPage {
   }
 
   getOcorrencias(){
-    console.log(">>>>getOcorrencias")
     this.ocorrencias.getOccurencesClose(this.userId).subscribe((result) => {
       if(result.success){
-        console.log(result.data)
         this.params.data = result.data
       }
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
-  }
-
   doRefresh(refresher) {
-    this.ocorrencias.getOcorrencias(this.userId).subscribe((result) => {
+    this.ocorrencias.getOccurencesClose(this.userId).subscribe((result) => {
       if(result.success){
         refresher.complete();
         this.params.data = result.data

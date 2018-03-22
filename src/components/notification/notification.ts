@@ -13,10 +13,7 @@ export class NotificationComponent {
   content: Content;
   text: string;
 
-  constructor() {
-    console.log(">>constructor");
-    console.log(this.events);
-  }
+  constructor() {}
 
   onEvent(event: string, item: any, e: any) {
     if (this.events[event]) {
@@ -24,17 +21,6 @@ export class NotificationComponent {
     }
   }
 
-  ngOnInit(){
-    console.log(">>ngOnInit");
-  }
-
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit - wrapper', this.violations);
-  }
-
-  ngAfterContentInit() {
-    console.log('ngAfterContentInit - wrapper', this.violations);
-  }
 
 
 }

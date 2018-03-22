@@ -4,14 +4,14 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title text-left title-page>
-      {{items.status_id | titlepage}}
+      {{!isEmptyObject(items) ? (items[0].status_id | titlepage) : ""}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 <!--Content-->
 <ion-content>
-  <detail-service
-    [data]="items"
-    [events]="params.events">
+  <detail-service *ngIf="!isEmptyObject(items)"
+                  [data]="items"
+                  [events]="params.events">
   </detail-service>
 </ion-content>

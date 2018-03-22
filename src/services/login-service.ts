@@ -66,70 +66,30 @@ export class LoginService implements IService {
     getEventsForTheme = (menuItem: any): any => {
         return {
             onLogin: function(params) {
-              if (window.location.hostname === "localhost") {
-                  console.log('onLogin:' + JSON.stringify(params));
-              } else {
-                  Toast.show('onLogin:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
+              if (!(window.location.hostname === "localhost")) {
+                Toast.show('onLogin:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
               }
             },
             onForgot: function() {
-                if (window.location.hostname === "localhost") {
-                    console.log('onForgot');
-                } else {
-                    Toast.show('onForgot', '1000', 'bottom').subscribe(toast => { });
+                if (!(window.location.hostname === "localhost")) {
+                  Toast.show('onForgot', '1000', 'bottom').subscribe(toast => { });
                 }
             },
             onRegister: function(params) {
-                if (window.location.hostname === "localhost") {
+                if (!(window.location.hostname === "localhost")){
                     if (params != null) {
-                        console.log('onRegister:' + JSON.stringify(params));
+                      Toast.show('onRegister:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
                     } else {
-                        console.log('onRegister');
+                      Toast.show('onRegister', '1000', 'bottom').subscribe(toast => { });
                     }
-                } else {
-                    if (params != null) {
-                        Toast.show('onRegister:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
-                    } else {
-                        Toast.show('onRegister', '1000', 'bottom').subscribe(toast => { });
-                    }
-
                 }
             },
             onSkip: function(params) {
-                if (window.location.hostname === "localhost") {
-                    console.log('onSkip:' + JSON.stringify(params));
-                } else {
-                    Toast.show('onSkip:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
+                if (!(window.location.hostname === "localhost")) {
+                  Toast.show('onSkip:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
                 }
             },
-            onFacebook: function(params) {
-              if (window.location.hostname === "localhost") {
-                  console.log('onFacebook:' + JSON.stringify(params));
-              } else {
-                  Toast.show('onFacebook:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
-              }
-            },
-            onTwitter: function(params) {
-                if (window.location.hostname === "localhost") {
-                    console.log('onTwitter:' + JSON.stringify(params));
-                } else {
-                    Toast.show('onTwitter:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
-                }
-            },
-            onGoogle: function(params) {
-              if (window.location.hostname === "localhost") {
-                  console.log('onGoogle:' + JSON.stringify(params));
-              } else {
-                  Toast.show('onGoogle:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
-              }
-            },
-            onPinterest: function(params) {
-              if (window.location.hostname === "localhost") {
-                  console.log('onPinterest:' + JSON.stringify(params));
-              } else {
-                  Toast.show('onPinterest:' + JSON.stringify(params), '1000', 'bottom').subscribe(toast => { });
-              }
-            },
+
         };
     };
 

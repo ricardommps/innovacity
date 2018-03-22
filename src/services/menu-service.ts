@@ -17,7 +17,7 @@ export class MenuService implements IService {
 
     getAllThemes = (): Array<any> => {
       return [
-        {"title" : "Dashboard", "theme"  : "DashboardPage",  "icon" : "icon-format-align-justify", "listView" : true, "component": "", "singlePage":true},
+        {"title" : "Atendimento Pendente", "theme"  : "DashboardPage",  "icon" : "icon-format-align-justify", "listView" : true, "component": "", "singlePage":true},
         {"title" : "Finalizados", "theme"  : "FinalizedPage",  "icon" : "icon-thumb-up", "listView" : true, "component": "", "singlePage":true},
         {"title" : "Aguardando Prazo", "theme"  : "WaitingPage",  "icon" : "icon-clock", "listView" : true, "component": "", "singlePage":true},
         {"title" : "Sair", "icon" : "icon-logout"}

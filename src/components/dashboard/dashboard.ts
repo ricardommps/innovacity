@@ -22,18 +22,13 @@ export class DashboardComponent {
   today : any;
 
   constructor(public keyboard : Keyboard, public datePicker : DatePicker) {
-    console.log(this.data)
   }
 
-  ngOnInit(){
-    console.log(">>",this.data)
-  }
 
   onEvent(event: string, index: number, e: any) {
     if (this.events[event]) {
       this.events[event](index);
     }
-    console.log(event);
   }
 
   onStarClass(items: any, index: number, e: any) {
@@ -80,7 +75,6 @@ export class DashboardComponent {
   }
 
   isGroupShown(group: any) {
-    console.log("<<isGroupShown",group)
     return group.show;
   }
 }

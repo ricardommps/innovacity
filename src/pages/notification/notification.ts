@@ -7,6 +7,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IntimatePage} from "../intimate/intimate";
 import * as moment from 'moment';
 import {NotificacaoService} from "../../services/notificacao";
+import {AuthService} from "../../services/auth.service";
 
 
 function validateViolations(control: FormControl) {
@@ -39,6 +40,7 @@ export class NotificationPage {
               private alertCtrl: AlertController,
               public contribuinte: ContribuinteService,
               public notificacao: NotificacaoService,
+              public auth: AuthService,
               public platform: Platform) {
     this.idService = navParams.get("idService");
     this.params = {
@@ -63,13 +65,11 @@ export class NotificationPage {
 
 
   onOpenViolation(){
-    console.log("onOpenViolation");
     let modal = this.modalCtrl.create('ViolationPage',{violations:this.violations})
     modal.onDidDismiss(dataViolations => {
       if(dataViolations){
         this.violations = dataViolations;
         this.notificacaoForm.controls['violations'].setValue(dataViolations);
-        console.log("---------",this.notificacaoForm.controls['violations'])
       }
     });
     modal.present();
@@ -77,10 +77,7 @@ export class NotificationPage {
 
   onSave(){
     var violations_id = []
-    console.log(">>>>violations",this.violations);
-
     this.violations.map(violation => {
-      console.log("----violation",violation)
       violations_id.push(violation.id_infracao)
     });
     var now = moment(new Date()).format("YYYY-MM-DD").split('-')
@@ -98,7 +95,8 @@ export class NotificationPage {
       id_ocorrencia  : this.idService,
       data_cadastro  : moment(new Date()).format("YYYY-MM-DD"),
       numero_notificacao  : numero_notificacao,
-      tipo_notificacao : "autuação"
+      tipo_notificacao : "autuação",
+      id_usuario : this.auth.getuserId()
     }
 
     this.notificacao.notification(notification)
@@ -109,10 +107,9 @@ export class NotificationPage {
           this.error(result.json().data)
         }
       }).catch((err) => {
-        console.log(err)
+
       });
 
-    console.log(">>>>>",notification)
     //this.navCtrl.setRoot("DashboardPage");
   }
 
@@ -141,14 +138,8 @@ export class NotificationPage {
     alert.present();
   }
 
-  ionViewDidLoad() {
-    console.log(this.idService);
-  }
-
   getCurrentPosition(){
-    console.log(">>>>platform")
     this.platform.ready().then(() => this.obtenerPosicion()).catch((error) => {
-      console.log('Error platform ready', error);
     });
    /* this.geolocation.getCurrentPosition().then((resp) => {
       console.log(">>getCurrentPosition<<",resp)
@@ -173,19 +164,16 @@ export class NotificationPage {
   }
 
   obtenerPosicion(): any {
-    console.log(">>>obtenerPosicion");
     let options = {
       timeout:10000,
       enableHighAccuracy:true
     };
     this.geolocation.getCurrentPosition(options).then((response) => {
-      console.log(response);
       let request: GeocoderRequest = {
         position: new LatLng(response.coords.latitude, response.coords.longitude)
       }
       this.geocoder.geocode(request)
         .then((results: GeocoderResult) => {
-          console.log(results)
           if(!results[0].thoroughfare){
             alert("Não foi possivel verificar sua posição. Insira o endereço manualmente")
           }else{
@@ -195,7 +183,6 @@ export class NotificationPage {
         })
     })
       .catch(error => {
-        console.log(error);
       })
   }
 
@@ -219,21 +206,20 @@ export class NotificationPage {
             if(result.json().data.length == 0){
               alert("Não foi possivel localizar um proprietário com base no endereço inserido.")
             }else  if(result.json().data.length == 1){
-              console.log(result.json().data)
               this.params.data.nome_razaosocial_proprietario = result.json().data[0].nome_razaosocial_proprietario ? result.json().data[0].nome_razaosocial_proprietario : ""
               this.params.data.cpf_cnpj_proprietario = result.json().data[0].cpf_cnpj_proprietario ? result.json().data[0].cpf_cnpj_proprietario : ""
               this.params.data.numero = result.json().data[0].numero ? result.json().data[0].numero : ""
               this.params.data.quadra = result.json().data[0].quadra ? result.json().data[0].quadra : ""
               this.params.data.lote = result.json().data[0].lote ? result.json().data[0].lote : ""
             }else{
-              console.log("Encontrado mais de uma pessoa")
+
               this.selectedIntimate(result.json().data)
             }
           }else{
 
           }
         }).catch((err) => {
-          console.log(err)
+
         });
       }
     }
@@ -241,10 +227,9 @@ export class NotificationPage {
   }
 
   selectedIntimate(intimate){
-    console.log(intimate)
     let modal = this.modalCtrl.create('IntimatePage',{intimates:intimate})
     modal.onDidDismiss(dataIntimate => {
-      console.log(dataIntimate);
+
       this.params.data.nome_razaosocial_proprietario = dataIntimate.nome_razaosocial_proprietario ? dataIntimate.nome_razaosocial_proprietario : ""
       this.params.data.cpf_cnpj_proprietario = dataIntimate.cpf_cnpj_proprietario ? dataIntimate.cpf_cnpj_proprietario : ""
       this.params.data.numero = dataIntimate.numero ? dataIntimate.numero : ""

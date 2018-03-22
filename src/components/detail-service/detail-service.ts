@@ -13,7 +13,6 @@ export class DetailServiceComponent {
   content: Content;
 
   constructor() {
-
   }
 
   onEvent(event: string, item: any, e: any) {

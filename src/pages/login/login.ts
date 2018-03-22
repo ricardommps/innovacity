@@ -70,19 +70,16 @@ export class LoginPage {
             text: 'Cancelar',
             role: 'cancel',
             handler: data => {
-              console.log('Cancel clicked');
             }
           },
           {
             text: 'Salvar',
             handler: data => {
-              console.log(data)
               if (data.userInfo.length > 0) {
                 let userInfo = {
                   "userInfo":data.userInfo
                 }
                 auth.newPassword(userInfo).then((resulte) => {
-                  console.log(resulte)
                   if (resulte.json().success) {
                     Splashscreen.hide();
                     confirmeSendEmail(resulte.json().data)
@@ -116,7 +113,7 @@ export class LoginPage {
       });
 
       toast.onDidDismiss(() => {
-        console.log('Dismissed toast');
+
       });
 
       toast.present();
@@ -152,7 +149,7 @@ export class LoginPage {
             text: 'Cancelar',
             role: 'cancel',
             handler: data => {
-              console.log('Cancel clicked');
+
             }
           },
           {
@@ -186,7 +183,7 @@ export class LoginPage {
     }
 
     function loginSucess(user){
-      console.log(user);
+
       var profile = {
         "id":user.id,
         "nome": user.nome,
@@ -194,7 +191,7 @@ export class LoginPage {
         "email": user.email,
         "tipo_usuario": user.tipo_usuario_nome
       }
-      console.log(profile)
+
       auth.setStorageVariable("id_token", user.token)
       auth.setStorageVariable("profile", profile)
       events.publish("shareObject", profile);
@@ -211,18 +208,12 @@ export class LoginPage {
     }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   ionViewDidEnter() {
     this.menu.enable(false, 'side-menu');
-    console.log('ionViewDidEnter LoginPage');
   }
 
   ionViewWillLeave() {
     this.menu.enable(true, 'side-menu');
-    console.log('ionViewWillLeave LoginPage');
   }
 
 }

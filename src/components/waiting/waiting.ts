@@ -24,7 +24,6 @@ export class WaitingComponent {
     if (this.events[event]) {
       this.events[event](index);
     }
-    console.log(event);
   }
 
   onStarClass(items: any, index: number, e: any) {
@@ -71,12 +70,10 @@ export class WaitingComponent {
   }
 
   isGroupShown(group: any) {
-    console.log("<<isGroupShown",group)
     return group.show;
   }
 
   dueNotification(item){
-    console.log(">>>dueNotification",item)
     if(!item.days){
       return 'willDueNotification'
     }

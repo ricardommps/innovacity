@@ -34,7 +34,6 @@ export class AuthService {
   }
 
   public login(user): Promise<any>  {
-    console.log("Login",user);
    return this.http.post('/login',user).toPromise();
     //this.nav.setRoot("DashboardPage");
   }
@@ -62,7 +61,6 @@ export class AuthService {
   }
 
   public logout() {
-    console.log(">>>logout");
     window.localStorage.removeItem('profile');
     window.localStorage.removeItem('access_token');
     window.localStorage.removeItem('id_token');

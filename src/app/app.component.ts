@@ -51,20 +51,14 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
-      //this.menu.enable(false,'side-menu');
-      console.log(this.auth.requireAuth());
       if(this.auth.requireAuth()){
         this.app.getActiveNav().setRoot("DashboardPage")
-        //this.rootPage = "DashboardPage";
         this.params.color = '#4FC3F7'
         this.params.user = this.auth.getStorageVariable('profile')
       }else{
         this.params.user = null
         this.app.getActiveNav().setRoot("LoginPage")
-       // this.rootPage = "LoginPage";
       }
       Splashscreen.hide();
      /* (<any>window).handleOpenURL = (url) => {

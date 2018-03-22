@@ -4,5 +4,6 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 export const environment = {
   production: false,
-  origin: 'http://172.23.231.60:3000/api/v1'
+  //origin: 'https://innovacity.herokuapp.com/api/v1'
+  origin: 'http://172.23.231.69:3000/api/v1'
 };

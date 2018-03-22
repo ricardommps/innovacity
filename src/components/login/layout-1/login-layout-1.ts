@@ -35,7 +35,6 @@ export class LoginLayout1 {
   }
 
   onEvent = (event: string): void => {
-      console.log(this.usuario,this.senha)
         if (this.events[event]) {
             this.events[event]({
                 'usuario': this.usuario,

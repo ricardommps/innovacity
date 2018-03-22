@@ -19,7 +19,6 @@ export class ComentariosOcorrenciaComponent {
   }
 
   ngOnInit(){
-    console.log(">>",this.data)
     this.comentarioData.ocorrenciaData = this.data;
   }
 

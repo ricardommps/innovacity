@@ -16,19 +16,31 @@ export class OcorrenciasService {
   }
 
   public getOccurencesClose(userId): Observable<any>  {
-    let url:string = `/ocorrenciasFechadas/${userId}`
+    let url:string = `/ocorrencesClose/${userId}`
     return this.http.get(url).map((res:Response) => res.json());
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
   public closeOccurence(occurenceData): Promise<any>{
-    let url:string = `/closeOcorrencia`
+    let url:string = `/closeOcorrenciaV2`
     return this.http.post(url,occurenceData).toPromise();
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
   public occurenceRead(idOccurence): Observable<any>  {
-    let url:string = `/OccurenceRead/${idOccurence}`
+    let url:string = `/occurenceRead/${idOccurence}`
+    return this.http.get(url).map((res:Response) => res.json());
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
+
+  public occurenceClose(idOccurence): Observable<any>  {
+    let url:string = `/ocorrenceClose/${idOccurence}`
+    return this.http.get(url).map((res:Response) => res.json());
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
+
+  public occurence(idOccurence): Observable<any>  {
+    let url:string = `/ocorrence/${idOccurence}`
     return this.http.get(url).map((res:Response) => res.json());
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
