@@ -45,4 +45,5 @@ export class OcorrenciasService {
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
+
 }

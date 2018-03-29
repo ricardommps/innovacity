@@ -65,8 +65,8 @@ export class DetailServicePage {
           console.log("---onCloseNotification")
           closeNotification(notification)
         },
-        'onEndNotification': function(occurence: any) {
-          alertComments(occurence)
+        'onEndNotification': function(notification: any) {
+          endNotification(notification)
         },
         'onOpenService': function(item: any) {
           navCtrl.push("NotificationPage",{idService:item.id});

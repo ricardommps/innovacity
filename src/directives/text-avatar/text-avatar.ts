@@ -21,10 +21,11 @@ export class TextAvatarDirective {
   private extractFirstCharacter(text: string): string {
     if(text){
       var res = text.split(" ");
+      var textStr = ""
       if(res.length <= 1){
-        var textStr = res[0] ? res[0].charAt(0).toLocaleUpperCase() : ''
+        textStr = res[0] ? res[0].charAt(0).toLocaleUpperCase() : ''
       }else{
-        var textStr = (res[0] ? res[0].charAt(0).toLocaleUpperCase() : '') + (res[1] ? res[1].charAt(0).toLocaleUpperCase() : "")
+        textStr = (res[0] ? res[0].charAt(0).toLocaleUpperCase() : '') + (res[1] ? res[1].charAt(0).toLocaleUpperCase() : "")
       }
 
       //var textStr = text.charAt(0).toLocaleUpperCase() + text.charAt(1).toLocaleUpperCase()
