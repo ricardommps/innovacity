@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>117864992681-qjk2rmt48i9d1b098iimtg78r230kjjl.apps.googleusercontent.com</string>
+	<string>1064910800806-eas9pmuua0r9pjfg4re27bpn5s8stq00.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.117864992681-qjk2rmt48i9d1b098iimtg78r230kjjl</string>
+	<string>com.googleusercontent.apps.1064910800806-eas9pmuua0r9pjfg4re27bpn5s8stq00</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC3MOjzG-5ijl6Uy6e6ZUr29WZe7UQQWKk</string>
+	<string>AIzaSyAroRNHwcWvq3BDrxVLmesiQxCt4J--l_o</string>
 	<key>GCM_SENDER_ID</key>
-	<string>117864992681</string>
+	<string>1064910800806</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.csform.ionic.green.light</string>
+	<string>io.ionic.starter</string>
 	<key>PROJECT_ID</key>
-	<string>ionic3-green-light</string>
+	<string>innovacity-7d640</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ionic3-green-light.appspot.com</string>
+	<string>innovacity-7d640.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:117864992681:ios:2943f604726107b8</string>
+	<string>1:1064910800806:ios:764d2cb7da3280eb</string>
 	<key>DATABASE_URL</key>
-	<string>https://ionic3-green-light.firebaseio.com</string>
+	<string>https://innovacity-7d640.firebaseio.com</string>
 </dict>
 </plist>

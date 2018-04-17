@@ -41,14 +41,21 @@
       </div>
 
       <div style="padding: 7px 28px 28px 28px;" *ngIf="data[0].status_id == 1">
-        <ion-icon icon-large>
-          <i class="icon icon-thumb-up" (click)="onEvent('onEndService', data[0], $event)"></i>
-        </ion-icon>
+        <button color="secondary"
+                (click)="onEvent('onEndService', data[0], $event)"
+                class="endService">Finalizar Ocorrência</button>
 
-        <ion-icon icon-large (click)="onEvent('onOpenService', data[0], $event)">
+       <!-- <ion-icon icon-large (click)="onEvent('onOpenService', data[0], $event)">
           <i class="icon icon-thumb-down"></i>
-        </ion-icon>
+        </ion-icon>--><!-- <ion-icon icon-large (click)="onEvent('onOpenService', data[0], $event)">
+          <i class="icon icon-thumb-down"></i>
+        </ion-icon>-->
+
+        <button color="secondary"
+                (click)="onEvent('onOpenService', data[0], $event)"
+                class="openService">Gerar Notificação</button>
       </div>
+
 
       <div style="padding: 7px 28px 28px 28px;" *ngIf="data[0].status_id == 3">
         <ion-icon icon-large>

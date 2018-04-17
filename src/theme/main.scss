@@ -39,8 +39,8 @@ $item-ios-avatar-size: 72px;
 $item-md-thumbnail-size: 120px;
 $item-ios-thumbnail-size: 120px;
 //Font Style
-$font-family-md-base: 'San Francisco';
-$font-family-ios-base: 'San Francisco';
+$font-family-md-base: 'Segoe UI';
+$font-family-ios-base: 'Segoe UI';
 // Font sizes
 $font-size-text:( 'h1': 34px, 'h2': 24px, 'h3': 22px, 'h4': 17px, 'h5': 15px, 'h6': 14px, 'p': 14px);
 $alert-input-placeholder-color:(#000000);
@@ -75,7 +75,7 @@ $palettes: (
   ),
 
   toolbarColors:(
-    background: #539587,
+    background: #1EB3CC,
   ),
   // Used for text colors in all screens
   textColors: (
@@ -356,7 +356,7 @@ ion-note {
   background: theme-colors('mainColors', 'accent');
   color: theme-colors('textColors', 'secondaryBase') !important;
   font-size: font-size-text('h4') !important;
-  font-weight: 300 !important;
+  font-weight: bold !important;
   height: 44px !important;
   box-shadow: none !important;
   border-radius: 8px !important;
@@ -365,7 +365,7 @@ ion-note {
 [button-clear] {
   color: theme-colors('textColors', 'accent') !important;
   font-size: font-size-text('h5') !important;
-  font-weight: 300 !important;
+  font-weight: bold !important;
   letter-spacing: 1px;
 }
 
@@ -543,18 +543,22 @@ $checkbox-md-icon-checkmark-color:theme-colors('textColors', 'secondaryBase');
   letter-spacing: 1px;
   font-weight: 300;
 }
-
+$text-input-md-highlight-color-invalid: transparent !important;
+$text-input-md-highlight-color-valid: transparent !important;
+$text-input-md-show-invalid-highlight: transparent !important;
+$text-input-md-highlight-color: transparent !important;
+$text-input-md-show-valid-highlight: transparent !important;
 // Input Field Settings
-$text-input-md-highlight-color: theme-colors('textColors', 'secondary') !important;
-$text-input-md-highlight-color-valid: theme-colors('textColors', 'secondary') !important;
-$text-input-md-highlight-color-invalid: red !important;
-$text-input-md-background-color: theme-colors('mainColors', 'accent') !important;
+$text-input-md-highlight-color: transparent !important;
+$text-input-md-highlight-color-valid: transparent !important;
+$text-input-md-highlight-color-invalid: transparent !important;
+$text-input-md-background-color: transparent !important;
 // Input Settings Label
-$label-md-text-color: theme-colors('textColors', 'secondary') !important;
-$label-ios-text-color: theme-colors('textColors', 'secondary') !important;
-$text-input-ios-highlight-color-invalid: red !important;
-$text-input-ios-highlight-color: theme-colors('textColors', 'secondary') !important;
-$text-input-ios-highlight-color-valid: theme-colors('textColors', 'secondary') !important;
+$label-md-text-color: transparent !important;
+$label-ios-text-color: transparent !important;
+$text-input-ios-highlight-color-invalid: transparent !important;
+$text-input-ios-highlight-color: transparent !important;
+$text-input-ios-highlight-color-valid: transparent !important;
 
 // Tabs Setting
 $tabs-background: theme-colors('mainColors', 'primary');
@@ -733,11 +737,11 @@ $toolbar-md-title-text-color: theme-colors('mainColors', 'primary');
   }
 
   .alert-md .alert-input {
-    border-bottom: 1px solid #8e8e93 !important;;
+    border-bottom: transparent !important;;
   }
 
   .alert-input {
-    border-bottom: 1px solid #8e8e93 !important;;
+    border-bottom: transparent !important;;
   }
 
   .alert-md [aria-checked=true] .alert-radio-label {
@@ -752,4 +756,15 @@ $toolbar-md-title-text-color: theme-colors('mainColors', 'primary');
   .alert-md .alert-radio-inner{
     background-color: #787878 !important;
   }
+
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: transparent  !important;
+    -webkit-box-shadow: none  !important;
+    box-shadow: none !important;
+  }
+
+  .item-md.item-block .item-inner {
+    box-shadow: none !important;
+  }
+
 }

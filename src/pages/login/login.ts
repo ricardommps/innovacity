@@ -22,12 +22,12 @@ export class LoginPage {
               private toastCtrl: ToastController,
               public events: Events) {
     this.params.data = {
-      "usuario": "Usuario",
+      "usuario": "Login",
       "senha": "Senha",
       "register": "Register",
-      "login": "Entrar",
+      "login": "Acessar",
       "skip": "Skip",
-      "logo": "assets/images/logo/logo-simplificado-rgb.jpg"
+      "logo": "assets/images/logo/logo-simplificado-rgb.png"
     };
 
     this.params.events = {

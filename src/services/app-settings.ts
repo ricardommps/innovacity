@@ -3,14 +3,14 @@ export const AppSettings = Object.freeze({
     SHOW_START_WIZARD: false,
     SUBSCRIBE: false,
     FIREBASE_CONFIG: {
-        apiKey: "AIzaSyA2sjrlsoShQwBh33YiJ4nTRB4kT3fOm58",
-        authDomain: "ionic3-green-light.firebaseapp.com",
-        databaseURL: "https://ionic3-green-light.firebaseio.com",
-        projectId: "ionic3-green-light",
-        storageBucket: "ionic3-green-light.appspot.com",
-        messagingSenderId: "117864992681"
+      apiKey: "AIzaSyCZFavRD1RFht43EqIv7VlBtpxe1wRwXw8",
+      authDomain: "innovacity-7d640.firebaseapp.com",
+      databaseURL: "https://innovacity-7d640.firebaseio.com",
+      projectId: "innovacity-7d640",
+      storageBucket: "innovacity-7d640.appspot.com",
+      messagingSenderId: "1064910800806"
     },
     MAP_KEY: {
-        apiKey: 'AIzaSyA4-GoZzOqYTvxMe52YQZch5JaCFN6ACLg'
+        apiKey: 'AIzaSyBt2zeAwjWWIhW9SLG5RxPH0dvJ6Ggym08'
     }
 });

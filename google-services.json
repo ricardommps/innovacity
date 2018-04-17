@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "117864992681",
-    "firebase_url": "https://ionic3-green-light.firebaseio.com",
-    "project_id": "ionic3-green-light",
-    "storage_bucket": "ionic3-green-light.appspot.com"
+    "project_number": "1064910800806",
+    "firebase_url": "https://innovacity-7d640.firebaseio.com",
+    "project_id": "innovacity-7d640",
+    "storage_bucket": "innovacity-7d640.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:117864992681:android:2943f604726107b8",
+        "mobilesdk_app_id": "1:1064910800806:android:764d2cb7da3280eb",
         "android_client_info": {
-          "package_name": "com.csform.ionic.green.light"
+          "package_name": "io.ionic.starter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "117864992681-j57d576gptvgfhkbj10bam2qqpc1ek62.apps.googleusercontent.com",
+          "client_id": "1064910800806-pr8c6gjg3jp11rj2hvhtpn530t73jk0f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCahaBDQdkB7egw0SFlsS78ITnqUYqvgh4"
+          "current_key": "AIzaSyDfDWA_XBIjTRljzRgvf5CyJSKatyJTmIM"
         }
       ],
       "services": {

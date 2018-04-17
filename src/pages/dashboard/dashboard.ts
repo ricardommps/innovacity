@@ -4,12 +4,13 @@ import { OcorrenciasService } from "../../services/ocorrencias";
 import { AuthService } from "../../services/auth.service";
 import { NotificacaoService } from "../../services/notificacao";
 import {WaitingPage} from "../waiting/waiting";
+import { FcmProvider } from '../../providers/fcm/fcm';
 
 @IonicPage()
 @Component({
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html',
-  providers: [OcorrenciasService, AuthService, NotificacaoService]
+  providers: [OcorrenciasService, AuthService, NotificacaoService, FcmProvider]
 })
 export class DashboardPage {
   params: any = {};
@@ -18,7 +19,8 @@ export class DashboardPage {
               public navParams: NavParams,
               public ocorrencias: OcorrenciasService,
               public auth: AuthService,
-              public notificacao: NotificacaoService) {
+              public notificacao: NotificacaoService,
+              public fcm: FcmProvider) {
     this.params.events = {
       onItemClick: function(ocorrencia) {
         console.log(">>>>",ocorrencia)
@@ -33,6 +35,11 @@ export class DashboardPage {
         navCtrl.push("WaitingPage");
       }
     };
+  }
+
+  ionViewDidLoad(){
+    console.log("-----ionViewDidLoad");
+    this.fcm.getToken()
   }
 
 

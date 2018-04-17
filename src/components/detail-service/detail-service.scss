@@ -123,4 +123,35 @@ detail-service {
     border-radius: 2px;
     background: white;
   }
+
+  .endService{
+    background-color: #6BC860;
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 364px !important;
+    margin-right: 5px;
+    font-weight: bold;
+  }
+
+  .openService{
+    background-color: #FF4F4F;
+    border: none;
+    color: white;
+    padding: 14px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 364px !important;
+    font-weight: bold;
+  }
 }
