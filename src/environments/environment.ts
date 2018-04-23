@@ -5,5 +5,5 @@
 export const environment = {
   production: false,
   //origin: 'https://innovacity.herokuapp.com/api/v1'
-  origin: 'http://localhost:3000/api/v1'
+  origin: 'http://172.23.1.178:3000/api/v1'
 };
