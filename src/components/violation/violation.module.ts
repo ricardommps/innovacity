@@ -2,12 +2,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ViolationComponent } from './violation';
 
+
 @NgModule({
   declarations: [
-    ViolationComponent,
+    ViolationComponent
   ],
   imports: [
-    IonicPageModule.forChild(ViolationComponent),
+    IonicPageModule.forChild(ViolationComponent)
+
   ],
   exports: [
     ViolationComponent

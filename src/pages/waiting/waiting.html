@@ -7,6 +7,11 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
+  <tab-menu *ngIf="!isEmptyObject(finalized) && !isEmptyObject(waiting) && !isEmptyObject(pending)"
+            [dataFinalized]="finalized"
+            [dataWaiting]="waiting"
+            [dataPending]="pending"
+            [events]="params.events"></tab-menu>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content>
     </ion-refresher-content>

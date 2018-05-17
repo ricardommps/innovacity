@@ -28,7 +28,8 @@ function validateViolations(control: FormControl) {
 })
 export class NotificationPage {
   params: any
-  violations:any = []
+  violations:any = [];
+  violationsChecked = 0;
   public idService
   notificacaoForm: FormGroup;
   constructor(public navCtrl: NavController,
@@ -44,7 +45,7 @@ export class NotificationPage {
               public platform: Platform) {
     this.idService = navParams.get("idService");
     this.params = {
-      title:"Cadastrar Irregularidade",
+      title:"Cadastrar Notificação",
       data:[]
     }
 
@@ -65,21 +66,71 @@ export class NotificationPage {
 
 
   onOpenViolation(){
-    let modal = this.modalCtrl.create('ViolationPage',{violations:this.violations})
+    let modal = this.modalCtrl.create('GroupViolationsPage',{violations:this.violations})
     modal.onDidDismiss(dataViolations => {
       if(dataViolations){
+        this.violationsChecked = 0;
         this.violations = dataViolations;
-        this.notificacaoForm.controls['violations'].setValue(dataViolations);
+        this.violations.map((violation) => {
+          console.log(">>>violation",violation)
+          violation.infracao.map((infracao) =>{
+            console.log(">>>infracao",infracao)
+            if(infracao.checked){
+              this.violationsChecked++
+            }
+          })
+          console.log(">>>violationsChecked",this.violationsChecked)
+        })
+
+        if(this.violationsChecked > 0){
+          this.notificacaoForm.controls['violations'].setValue(dataViolations);
+        }else{
+          this.notificacaoForm.controls['violations'].setValue(null);
+        }
+
       }
     });
     modal.present();
   }
 
   onSave(){
-    var violations_id = []
-    this.violations.map(violation => {
-      violations_id.push(violation.id_infracao)
+
+    var alertMessage =
+      "<div>"+
+      "<p>55555/2018</p>"+
+      "<p class='iconMessage'>" +
+      "<ion-icon icon-small item-left class='iconItem' style='color: #65c55a !important;'>"+
+      "<i class='icon icon-alarm'></i>"+
+      "</ion-icon>"+
+      "</p>"+
+      "</div>"
+
+    let alert = this.alertCtrl.create({
+      title: "<h2>Infração Gerada</h2>",
+      message: alertMessage,
+      buttons: [
+        {
+          text: 'Continuar',
+          handler: () => {
+            this.navCtrl.setRoot("DashboardPage");
+          }
+        }
+      ],
+      cssClass: 'alertConfirme'
     });
+    alert.present();
+
+   /* var violations_id = []
+    this.violations.map((violation) => {
+      violation.infracao.map((infracao) =>{
+        if(infracao.checked){
+          violations_id.push(infracao.id_infracao)
+        }
+      })
+    })
+
+    console.log(">>>violations_id",violations_id)
+
     var now = moment(new Date()).format("YYYY-MM-DD").split('-')
     var numero_notificacao = now[0]+now[1]+now[2]+this.idService
     var notification = {
@@ -110,7 +161,7 @@ export class NotificationPage {
 
       });
 
-    //this.navCtrl.setRoot("DashboardPage");
+    //this.navCtrl.setRoot("DashboardPage");*/
   }
 
     alert(msg){

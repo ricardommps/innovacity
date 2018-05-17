@@ -131,4 +131,24 @@ dashboard {
     width: 88%;
   }
 
+  .itemMenu{
+    height: 5.5rem;
+    width: 5.5rem;
+    border: 2px solid #00f9a6;
+    position: relative;
+    border-radius: 50%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .itemMenuValue{
+    font-size: 22px;
+    font-weight: bold;
+    color: #acadad;
+    position: relative;
+    top: 8px;
+    left: 11px;
+  }
+
+
 }

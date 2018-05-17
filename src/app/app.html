@@ -1,21 +1,22 @@
 <!---Settings Main Header-->
-<ion-split-pane when="md">
+<ion-split-pane [when]=false>
     <!-- Menu Main Top -->
     <ion-menu [content]="content" *ngIf="params.user != null" id="side-menu">
-        <ion-header>
+        <ion-header class="headerMenu">
             <div header-background-image padding>
-              <text-avatar [text]="params.user.nome" [color]="params.color" item-left></text-avatar>
-                <p>{{params.user ? params.user.nome : ""}}</p>
-                <p class="categoria">{{params.user ? params.user.tipo_usuario : ""}}</p>
+              <div>
+                <text-avatar [text]="params.user.nome" [color]="params.color" item-left></text-avatar>
+                <p class="nameMenu">Olá {{params.user ? params.user.nome : ""}}</p>
+              </div>
             </div>
         </ion-header>
         <!-- Menu Main List -->
-        <ion-content>
+        <ion-content class="contentMenu">
             <ion-list no-margin>
-                <button menuClose ion-item item-title main-menu no-lines border *ngFor="let p of pages"
+                <button menuClose ion-item item-title main-menu no-lines *ngFor="let p of pages"
                         (click)="openPage(p)">
                     <ion-icon icon-small item-left>
-                      <i class="icon {{p.icon}}"></i>
+                      <i class="icon {{p.icon}}" [ngStyle]="{'color': p.colorIcon }"></i>
                     </ion-icon>
                     {{p.title}}
                 </button>

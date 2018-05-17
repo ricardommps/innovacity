@@ -6,18 +6,21 @@
       </ion-list>
       <ion-list no-margin *ngIf="data.length > 0">
         <ion-item-sliding *ngFor="let item of data" #slidingItem>
-          <ion-item border no-lines
-                    (click)="onEvent('onItemClick', item, $event)">
-            <ion-avatar item-left>
-              <text-avatar [text]="item.tipo" [color]="colorAvatar" item-left style="margin-top:25px;"></text-avatar>
-            </ion-avatar>
+          <ion-item no-lines
+                    (click)="onEvent('onItemClick', item, $event)"
+                    [ngClass]="{'naolido': !item.lida}">
+            <ion-icon icon-small item-left class="iconItem" style="color: #65c55a !important;">
+              <i class="icon icon-alarm"></i>
+            </ion-icon>
             <!-- Title -->
             <h2>{{item.tipo}}</h2>
             <div style="margin-top: 3px;">
-              <h3>{{item.endereco}}</h3>
-              <h4 item-subtitle>{{item.origem}}: {{item.descricao}}</h4>
+              <p class="itemDetalhes">{{item.endereco}}</p>
             </div>
-            <ion-note item-end class="ionNoteDate"><span>{{item.data_finalizado  | date: 'dd/MM/yyyy'}}</span></ion-note>
+
+            <ion-icon icon-small item-end>
+              <i class="icon icon-chevron-right"></i>
+            </ion-icon>
           </ion-item>
         </ion-item-sliding>
       </ion-list>

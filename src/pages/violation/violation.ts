@@ -9,41 +9,60 @@ import {InfracoesService} from "../../services/infracoes";
   providers: [InfracoesService]
 })
 export class ViolationPage {
-  params: any = {
-    title:"Infrações",
-    events:{},
-    data:null
-  };
-  violationsSelected: any = {};
+  typeSelected: any ;
+  copy: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public infracoes:InfracoesService) {
-    this.violationsSelected = navParams.get('violations') ? navParams.get('violations') : {};
 
-    this.params = {
-            events:{
-        'onClose': function(item: any) {
-          viewCtrl.dismiss(item ? item : []);
-        },
-        'onSaveViolations': function(item: any) {
-
-          viewCtrl.dismiss(item);
-        },
-      }
-    }
+    //this.params.data = navParams.get('violation') ? navParams.get('violation') : {};
   }
 
   ngOnInit(){
-    this.loadInfracoes();
-  }
-
-  loadInfracoes(){
-    this.infracoes.getInfrcoes().subscribe((result) => {
-      if(result.success){
-        this.params.data = result.data
+    console.log("-----ngOnInit");
+    this.typeSelected = this.navParams.get('violation');
+    console.log("-----typeSelected",this.typeSelected);
+    this.typeSelected.infracao.map((infracao) => {
+      if(infracao.checked == undefined){
+        infracao.checked = false
       }
     })
+    console.log("-----typeSelected",this.typeSelected);
+    this.copy = JSON.parse(JSON.stringify(this.typeSelected))
+    console.log("-----copy",this.copy);
   }
+
+  onClose(){
+    console.log("-----onClose-----",this.copy)
+    this.viewCtrl.dismiss(this.copy);
+    //this.navCtrl.pop();
+  }
+
+  onSave(){
+    console.log(">>typeSelected",this.typeSelected)
+    this.viewCtrl.dismiss(this.typeSelected);
+  }
+
+  teste(item,element){
+    let elementItem = (item.split("-"))
+    if(element == 'title'){
+      return elementItem[0]
+    }else if(element == 'subTitle'){
+      return elementItem[1]
+    }
+    return ""
+
+  }
+
+  getClassDisplay(item) {
+    var strText = item.split("-")[1].trim()
+    if (strText.length > 110) {
+      return "displayMore";
+    } else {
+      return "displayNoneMore";
+    }
+  }
+
 
 }

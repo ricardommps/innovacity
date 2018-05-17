@@ -1,15 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 760:
+/***/ 716:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginLayout1Module", function() { return LoginLayout1Module; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginLayout2Module", function() { return LoginLayout2Module; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_layout_1__ = __webpack_require__(781);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_layout_2__ = __webpack_require__(762);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,40 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var LoginLayout1Module = (function () {
-    function LoginLayout1Module() {
+var LoginLayout2Module = (function () {
+    function LoginLayout2Module() {
     }
-    return LoginLayout1Module;
+    return LoginLayout2Module;
 }());
-LoginLayout1Module = __decorate([
+LoginLayout2Module = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__login_layout_1__["a" /* LoginLayout1 */],
+            __WEBPACK_IMPORTED_MODULE_2__login_layout_2__["a" /* LoginLayout2 */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login_layout_1__["a" /* LoginLayout1 */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login_layout_2__["a" /* LoginLayout2 */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__login_layout_1__["a" /* LoginLayout1 */]
+            __WEBPACK_IMPORTED_MODULE_2__login_layout_2__["a" /* LoginLayout2 */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]],
         schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* CUSTOM_ELEMENTS_SCHEMA */]]
     })
-], LoginLayout1Module);
+], LoginLayout2Module);
 
-//# sourceMappingURL=login-layout-1.module.js.map
+//# sourceMappingURL=login-layout-2.module.js.map
 
 /***/ }),
 
-/***/ 781:
+/***/ 762:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginLayout1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginLayout2; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,54 +58,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-var LoginLayout1 = (function () {
-    function LoginLayout1(auth, formBuilder) {
+var LoginLayout2 = (function () {
+    function LoginLayout2() {
         var _this = this;
-        this.auth = auth;
-        this.formBuilder = formBuilder;
         this.onEvent = function (event) {
             if (_this.events[event]) {
                 _this.events[event]({
-                    'usuario': _this.usuario,
-                    'senha': _this.senha
+                    'username': _this.username,
+                    'password': _this.password
                 });
             }
         };
-        this.authForm = formBuilder.group({
-            usuario: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].maxLength(30)])],
-            senha: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6)])]
-        });
     }
-    LoginLayout1.prototype.onSubmit = function (value) {
-        if (this.authForm.valid) {
-            var event_1 = 'onLogin';
-            this.events[event_1]({
-                'usuario': this.usuario,
-                'senha': this.senha
-            });
-        }
-    };
-    return LoginLayout1;
+    return LoginLayout2;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
-], LoginLayout1.prototype, "data", void 0);
+], LoginLayout2.prototype, "data", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
-], LoginLayout1.prototype, "events", void 0);
-LoginLayout1 = __decorate([
+], LoginLayout2.prototype, "events", void 0);
+LoginLayout2 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'login-layout-1',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\login\layout-1\login.html"*/'<!-- Themes Login + logo 2 -->\n<ion-content has-header class="loginContent">\n  <ion-grid no-padding *ngIf="data != null">\n\n    <ion-row class="logo-row">\n      <ion-col></ion-col>\n      <ion-col width-67>\n        <img [src]="data.logo">\n      </ion-col>\n      <ion-col></ion-col>\n    </ion-row>\n\n    <div class="login-box">\n      <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)" class="loginForm">\n        <ion-row>\n          <ion-col>\n            <ion-item padding margin-top>\n              <!--<ion-item padding margin-top [ngClass]="{\'error-border\':!authForm.controls.usuario.valid && authForm.controls.usuario.touched}">-->\n              <ion-input required type="text" placeholder="{{data.usuario}}" [(ngModel)]="usuario" formControlName="usuario"></ion-input>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col>\n            <ion-item padding>\n              <ion-input required type="password" placeholder="{{data.senha}}" [(ngModel)]="senha" formControlName="senha"></ion-input>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n\n        <!--<ion-item *ngIf="authForm.controls.usuario.hasError(\'required\') && authForm.controls.usuario.touched">\n          <p>Desculpe, o nome de usuário é obrigatório!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.usuario.hasError(\'pattern\') && authForm.controls.usuario.touched">\n          <p>Desculpe, somente letras minúsculas e maiúsculas são permitidas!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.usuario.hasError(\'minlength\') && authForm.controls.usuario.touched">\n          <p>Desculpe, o nome de usuário deve conter mais de 8 caracteres!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.usuario.hasError(\'maxlength\') && authForm.controls.usuario.touched">\n          <p>Desculpe, o nome de usuário não pode conter mais de 30 caracteres!</p>\n        </ion-item>-->\n        <!---Input field password-->\n\n        <!--<ion-item *ngIf="authForm.controls.senha.hasError(\'required\') && authForm.controls.senha.touched">\n          < <p>Desculpe, s senha é obrigatório!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.senha.hasError(\'minlength\') && authForm.controls.senha.touched">\n          <p>Desculpe, senha deve conter mais de 8 caracteres!</p>\n        </ion-item>-->\n\n        <ion-row>\n          <ion-col>\n            <button ion-button default-button full color="secondary"\n                    class="loginSubmit"\n                    [disabled]="!authForm.valid"\n                    type="submit">{{data.login}}</button>\n            <span class="rememberPassword" (click)="onEvent(\'onNewPassword\')">Esqueci a senha</span>\n          </ion-col>\n\n        </ion-row>\n\n      </form>\n    </div>\n\n    <!---Share Section-->\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\login\layout-1\login.html"*/,
-        providers: [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]]
+        selector: 'login-layout-2',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\login\layout-2\login.html"*/'<!-- Themes Login + logo -->\n\n<ion-content has-header>\n\n    <ion-grid *ngIf="data != null">\n\n        <ion-row padding-horizontal align-self-center>\n\n            <ion-col align-self-start col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n\n                <button ion-button text-capitalize button-clear clear float-left (click)="onEvent(\'onSkip\')">{{data.skip}}</button>\n\n                <button ion-button text-capitalize button-clear clear float-right (click)="onEvent(\'onForgot\')">{{data.forgotPassword}}</button>\n\n            </ion-col>\n\n            <ion-col align-self-end col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n\n                <!--DESCRIPTION-->\n\n                <ion-item no-lines no-padding>\n\n                    <h2 ion-text color="dark" login-subtitle text-wrap>{{data.subtitle}}</h2>\n\n                    <h1 no-margin login-title text-wrap>{{data.title}}</h1>\n\n                    <!--LOGO-->\n\n                    <img [src]="data.logo">\n\n                </ion-item>\n\n            </ion-col>\n\n            <ion-col align-self-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n\n                <!---Input field username-->\n\n                <ion-item no-padding transparent>\n\n                    <ion-label color="dark" stacked>{{data.labelUsername}}</ion-label>\n\n                    <ion-input required placeholder="{{data.username}}" type="text" [(ngModel)]="username"></ion-input>\n\n                </ion-item>\n\n                <!---Input field password-->\n\n                <ion-item no-padding transparent>\n\n                    <ion-label color="dark" stacked>{{data.labelPassword}}</ion-label>\n\n                    <ion-input required placeholder="{{data.password}}" type="password" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n                <!---Login button-->\n\n                <button ion-button button-clear float-right clear text-capitalize (click)="onEvent(\'onRegister\')">{{data.register}}</button>\n\n                <!---Register button-->\n\n                <button ion-button button-clear clear float-right text-capitalize (click)="onEvent(\'onLogin\')">{{data.login}}</button>\n\n            </ion-col>\n\n            <!---Share Section-->\n\n            <ion-col align-self-end col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6 social>\n\n                <!---Facebook button-->\n\n                <button ion-button text-capitalize default-button color="facebook" (click)="onEvent(\'onFacebook\')">Facebook</button>\n\n                <!---Twitter button-->\n\n                <button ion-button text-capitalize default-button color="twitter" (click)="onEvent(\'onTwitter\')">Twitter</button>\n\n                <!---Google button-->\n\n                <button ion-button text-capitalize default-button color="google" (click)="onEvent(\'onGoogle\')">Google</button>\n\n                <!---Pinterest button-->\n\n                <button ion-button text-capitalize default-button color="pinterest" (click)="onEvent(\'onPinterest\')">Pinterest</button>\n\n            </ion-col>\n\n            <!---End Share Section-->\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\login\layout-2\login.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
-], LoginLayout1);
+    __metadata("design:paramtypes", [])
+], LoginLayout2);
 
-//# sourceMappingURL=login-layout-1.js.map
+//# sourceMappingURL=login-layout-2.js.map
 
 /***/ })
 

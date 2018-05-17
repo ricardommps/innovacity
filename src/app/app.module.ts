@@ -6,16 +6,10 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AppSettings } from '../services/app-settings'
 import { AuthService } from '../services/auth.service';
 import { DirectivesModule } from '../directives/directives.module';
 import {InterceptedHttp} from "./http.interceptor";
 import { GoogleMaps, Geocoder  } from '@ionic-native/google-maps';
-import { Firebase } from '@ionic-native/firebase';
-import {AngularFirestoreModule} from "angularfire2/firestore";
 
 export function httpInterceptorFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, inj: Injector) {
   return new InterceptedHttp(xhrBackend, requestOptions, inj);
@@ -31,11 +25,7 @@ export function httpInterceptorFactory(xhrBackend: XHRBackend, requestOptions: R
     DirectivesModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(AppSettings.FIREBASE_CONFIG),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFirestoreModule
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp],
@@ -45,7 +35,6 @@ export function httpInterceptorFactory(xhrBackend: XHRBackend, requestOptions: R
     Geolocation,
     GoogleMaps,
     Geocoder,
-    Firebase,
     NativeGeocoder,
       {
         provide: [ErrorHandler,Http],

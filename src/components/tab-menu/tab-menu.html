@@ -1,0 +1,29 @@
+<div class="story">
+    <div class="story_scroll" (click)="onEvent('onNavigationPage', 'DashboardPage', $event)">
+      <div class="story_img_bg">
+        <div class="story_img pending">
+          <p style="display: inline;position: relative;top: 2px;">{{dataPending.total}}</p>
+          <span>{{dataPending.totalNews}}</span>
+        </div>
+      </div>
+      <p no-margin no-padding text-center class="story_text">PENDENTES</p>
+    </div>
+    <div class="story_scroll" (click)="onEvent('onNavigationPage', 'WaitingPage', $event)">
+      <div class="story_img_bg">
+        <div class="story_img waiting">
+          <p style="display: inline;position: relative;top: 2px;">{{dataWaiting.total}}</p>
+          <span>{{dataWaiting.totalNews}}</span>
+        </div>
+      </div>
+      <p no-margin no-padding text-center class="story_text waiting">AGUARDANDO PRAZO</p>
+    </div>
+    <div class="story_scroll" (click)="onEvent('onNavigationPage', 'FinalizedPage', $event)">
+      <div class="story_img_bg">
+        <div class="story_img finalized">
+          <p style="display: inline;position: relative;top: 2px;">{{dataFinalized.total}}</p>
+          <span>{{dataFinalized.totalNews}}</span>
+        </div>
+      </div>
+      <p no-margin no-padding text-center class="story_text">FINALIZADOS</p>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Grupo de Infrações</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only class="my-style-for-modal" (click)="onClose()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onSave()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons start>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding *ngIf="violations != null">
+    <ion-col col-12 no-padding no-margin>
+      <ion-list no-lines>
+        <ion-item-sliding *ngFor="let item of violations" #slidingItem>
+          <ion-item no-lines (click)="onOpenNotification( item, $event)">
+            <span>
+              {{item.categoria}}
+            </span>
+            <span class="notification-ring"
+            *ngIf="item.countChecked || item.countChecked > 0">{{item.countChecked}}</span>
+            <ion-icon icon-small item-end>
+              <i class="icon icon-chevron-right"></i>
+            </ion-icon>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+      <button ion-button round color="secondary" float-right
+              class="endService"  (click)="onSave()"
+              style="margin-right: 20px;"z>
+        Continuar
+      </button>
+    </ion-col>
+  </ion-grid>
+</ion-content>

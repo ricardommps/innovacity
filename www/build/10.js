@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 764:
+/***/ 722:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SplashScreenLayout3Module", function() { return SplashScreenLayout3Module; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__splash_screen_layout_3__ = __webpack_require__(930);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(783);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SplashScreenLayout3Module = (function () {
-    function SplashScreenLayout3Module() {
+var HomePageModule = (function () {
+    function HomePageModule() {
     }
-    return SplashScreenLayout3Module;
+    return HomePageModule;
 }());
-SplashScreenLayout3Module = __decorate([
+HomePageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__splash_screen_layout_3__["a" /* SplashScreenLayout3 */],
+            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__splash_screen_layout_3__["a" /* SplashScreenLayout3 */]),
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_2__splash_screen_layout_3__["a" /* SplashScreenLayout3 */]
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
         ],
         schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* CUSTOM_ELEMENTS_SCHEMA */]]
     })
-], SplashScreenLayout3Module);
+], HomePageModule);
 
-//# sourceMappingURL=splash-screen-layout-3.module.js.map
+//# sourceMappingURL=home.module.js.map
 
 /***/ }),
 
-/***/ 930:
+/***/ 783:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SplashScreenLayout3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,52 +56,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var SplashScreenLayout3 = (function () {
-    function SplashScreenLayout3() {
-    }
-    SplashScreenLayout3.prototype.ngOnChanges = function (changes) {
-        clearInterval(this.timer);
-        this.executeEvents();
-    };
-    SplashScreenLayout3.prototype.getData = function () {
-        return this.data;
-    };
-    SplashScreenLayout3.prototype.getEvents = function () {
-        return this.events;
-    };
-    SplashScreenLayout3.prototype.executeEvents = function () {
-        var duration = (this.getData() && this.getData().duration) ? this.getData().duration : 10000;
-        var events = null;
-        if (this.getEvents()) {
-            events = this.getEvents()['onRedirect'];
-        }
-        this.timer = setTimeout(function () {
-            if (events) {
-                events();
-            }
-        }, duration);
-    };
-    SplashScreenLayout3.prototype.ngOnDestroy = function () {
-        clearInterval(this.timer);
-    };
-    return SplashScreenLayout3;
-}());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('data'),
-    __metadata("design:type", Object)
-], SplashScreenLayout3.prototype, "data", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('events'),
-    __metadata("design:type", Object)
-], SplashScreenLayout3.prototype, "events", void 0);
-SplashScreenLayout3 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'splash-screen-layout-3',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\splash-screen\layout-3\splash-screen.html"*/'<!--Theme Logo + Title + Ken Burns-->\n\n<div id="splash-background-image">\n\n  <img splash-screen [src]="data.backgroundImage" />\n\n    <img logo [src]="data.logo" />\n\n    <h1 header-title text-wrap>{{data.title}}</h1>\n\n</div>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\splash-screen\layout-3\splash-screen.html"*/
-    }),
-    __metadata("design:paramtypes", [])
-], SplashScreenLayout3);
 
-//# sourceMappingURL=splash-screen-layout-3.js.map
+var HomePage = (function () {
+    function HomePage(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    return HomePage;
+}());
+HomePage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\pages\home\home.html"*/'<!--Fist Screen-->\n\n<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n      <ion-icon class="icon-menu" name="menu"></ion-icon>\n\n    </button>\n\n        <ion-title>Ionic3 UI Theme - Blue Light</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<!--Fist Screen Content-->\n\n<ion-content>\n\n    <div background-size class="default-background">\n\n        <div class="ionic-descript" text-center>\n\n            <h2 item-title>SAVE HOURS</h2>\n\n            <h2 item-title>OF DEVELOPING</h2>\n\n            <p item-subtitle>and make apps fast as light!</p>\n\n        </div>\n\n        <a href="http://csform.com/documentation-for-ionic-3-ui-template-app-green-light/">\n\n      For better understanding how our template works please read documentation.\n\n    </a>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\pages\home\home.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]])
+], HomePage);
+
+//# sourceMappingURL=home.js.map
 
 /***/ })
 

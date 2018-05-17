@@ -1,41 +1,26 @@
 <ion-grid no-padding>
   <ion-row *ngIf="data != null">
     <ion-col col-12>
-      <!--Header Small item + header-->
-      <ion-list-header header-section padding-bottom padding-horizontal
-                       *ngIf="notificationOverdue ?  notificationOverdue.length > 0 : false">
-        <!--Header Big Title-->
-        <ion-item no-lines (click)="onEvent('onWaitingClick', notificationOverdue, $event)">
-          <ion-icon item-start color="secondary" name="warning"></ion-icon>
-          <!-- Title -->
-          <h2 item-title text-capitalize margin-top text-wrap>Aguardando prazo</h2>
-          <!-- Subtitle -->
-          <p item-subtitle
-             no-margin text-wrap
-             style="font-size: 11px !important;">{{notificationOverdue.length}} notificações vencidas</p>
-          <ion-badge id="notifications-badge" color="danger" item-end>{{notificationOverdue.length}}</ion-badge>
-        </ion-item>
-      </ion-list-header>
-      <!-- Content -->
-      <ion-list no-margin *ngIf="data.length == 0">
+           <ion-list no-margin *ngIf="data.length == 0">
         <span>Nenhuma ocorrência encontrada</span>
       </ion-list>
       <ion-list no-margin *ngIf="data.length > 0">
         <ion-item-sliding *ngFor="let item of data" #slidingItem>
-          <ion-item border no-lines
+          <ion-item no-lines
                     (click)="onEvent('onItemClick', item, $event)"
                     [ngClass]="{'naolido': !item.lida}">
-            <ion-avatar item-left>
-              <text-avatar [text]="item.tipo" [color]="colorAvatar" item-left style="margin-top:25px;"></text-avatar>
-            </ion-avatar>
+            <ion-icon icon-small item-left class="iconItem">
+              <i class="icon icon-alarm"></i>
+            </ion-icon>
             <!-- Title -->
             <h2>{{item.tipo}}</h2>
             <div style="margin-top: 3px;">
               <h3>{{item.endereco}}</h3>
-              <h4 item-subtitle>{{item.origem}}: {{item.descricao}}</h4>
             </div>
 
-            <ion-note item-end class="ionNoteDate"><span>{{item.data_abertura  | date: 'dd/MM/yyyy'}}</span></ion-note>
+            <ion-icon icon-small item-end>
+              <i class="icon icon-chevron-right"></i>
+            </ion-icon>
 
             <!--<ion-note item-end class="ionNoteKm"><span>1,5 km</span></ion-note>-->
             <!-- Icon -->

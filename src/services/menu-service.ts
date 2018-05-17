@@ -1,5 +1,4 @@
 import { IService } from './IService';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SpinnerDialog } from 'ionic-native';
@@ -9,7 +8,7 @@ import {WaitingPage} from "../pages/waiting/waiting";
 @Injectable()
 export class MenuService implements IService {
 
-    constructor(public af: AngularFireDatabase) {}
+    constructor() {}
 
     getId = ():string => 'menu';
 
@@ -17,10 +16,10 @@ export class MenuService implements IService {
 
     getAllThemes = (): Array<any> => {
       return [
-        {"title" : "Atendimento Pendente", "theme"  : "DashboardPage",  "icon" : "icon-format-align-justify", "listView" : true, "component": "", "singlePage":true},
-        {"title" : "Finalizados", "theme"  : "FinalizedPage",  "icon" : "icon-thumb-up", "listView" : true, "component": "", "singlePage":true},
-        {"title" : "Aguardando Prazo", "theme"  : "WaitingPage",  "icon" : "icon-clock", "listView" : true, "component": "", "singlePage":true},
-        {"title" : "Sair", "icon" : "icon-logout"}
+        {"title" : "Atendimentos", "theme"  : "DashboardPage",  "icon" : "icon-alarm", colorIcon:"#fe5a5a", "listView" : true, "component": "", "singlePage":true},
+        {"title" : "Aguardando Prazo", "theme"  : "WaitingPage",  "icon" : "icon-alarm", colorIcon:"#1097ff", "listView" : true, "component": "", "singlePage":true},
+        {"title" : "Finalizados", "theme"  : "FinalizedPage",  "icon" : "icon-alarm", colorIcon:"#65c55a", "listView" : true, "component": "", "singlePage":true},
+        {"title" : "Sair", "icon" : "icon-arrow-left"}
       ];
     };
 
@@ -47,7 +46,7 @@ export class MenuService implements IService {
 
     load(item: any): Observable<any> {
       SpinnerDialog.show(null, "Loading");
-      if (AppSettings.IS_FIREBASE_ENABLED) {
+      /*if (AppSettings.IS_FIREBASE_ENABLED) {
         return new Observable(observer => {
           this.af
             .object('menu')
@@ -68,7 +67,12 @@ export class MenuService implements IService {
           observer.next(this.getDataForTheme());
           observer.complete();
         });
-      }
+      }*/
+      return new Observable(observer => {
+        SpinnerDialog.hide();
+        observer.next(this.getDataForTheme());
+        observer.complete();
+      });
     }
 }
 

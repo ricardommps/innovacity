@@ -1,4 +1,51 @@
-<violation *ngIf="params.data"
-  [data]="params.data"
-  [violationsSelected]="violationsSelected"
-  [events]="params.events"></violation>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{typeSelected.categoria}}</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only class="my-style-for-modal" (click)="onClose()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onSave()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons start>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding *ngIf="typeSelected != null">
+    <ion-col col-12 no-padding no-margin>
+      <ion-list no-lines>
+        <ion-item-sliding *ngFor="let item of typeSelected.infracao;let i = index" [attr.data-index]="i" #slidingItem>
+          <ion-item no-lines>
+            <ion-label>
+              <h2>{{teste(item.item,'title')}}</h2>
+              <div style="margin-top: 3px;">
+                <p>
+                  <span #textContent1 id="read-more{{i}}" text-wrap>
+                    {{teste(item.item,'subTitle')}}
+                  </span>
+                  <span readMore [readMore-length]="110" class="read-more-link" [ngClass]="getClassDisplay(item.item)"
+                        [readMore-element]="textContent1">
+                        <span class="less">menos <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        <span class="more">... mais <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                      </span>
+                </p>
+              </div>
+            </ion-label>
+            <ion-toggle color="green" item-end [(ngModel)]="item.checked"></ion-toggle>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+      <button ion-button round color="secondary" float-right
+              class="endService"  (click)="onSave()"
+              style="margin-right: 20px;">
+        Continuar
+      </button>
+    </ion-col>
+  </ion-grid>
+</ion-content>
+
+

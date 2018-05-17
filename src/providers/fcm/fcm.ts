@@ -1,3 +1,4 @@
+/*
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Firebase } from '@ionic-native/firebase';
@@ -21,7 +22,7 @@ export class FcmProvider {
 
    // this.platform.is('android') ? this.initializeFirebaseAndroid() : this.initializeFirebaseIOS();
 
-    /*if (this.platform.is('android')) {
+    /!*if (this.platform.is('android')) {
 
       token = await this.firebaseNative.getToken()
       console.log("-----android");
@@ -37,7 +38,7 @@ export class FcmProvider {
     if (!this.platform.is('cordova')) {
       console.log("-----cordova");
       // TODO add PWA support with angularfire2
-    }*/
+    }*!/
 
     return this.saveTokenToFirestore(token)
   }
@@ -45,7 +46,7 @@ export class FcmProvider {
   private initializeFirebaseAndroid(): void {
     console.log("----initializeFirebaseAndroid")
 
-   /* FCMPlugin.getToken(
+   /!* FCMPlugin.getToken(
       (token) => {
         console.log(`This Android device's token is ${token}`);
       },
@@ -58,7 +59,7 @@ export class FcmProvider {
       this.saveTokenToFirestore(token);
     }, e => {
       console.error(e);
-    });*/
+    });*!/
   }
 
   private initializeFirebaseIOS(): Promise<any> {
@@ -103,3 +104,4 @@ export class FcmProvider {
   }
 
 }
+*/

@@ -1,13 +1,10 @@
 <!-- Themes Login + logo 2 -->
-<ion-content has-header class="loginContent">
-  <ion-grid no-padding *ngIf="data != null">
-
-    <ion-row class="logo-row">
-      <ion-col></ion-col>
-      <ion-col width-67>
+<ion-content has-header class="loginContent testelogin">
+  <ion-grid no-padding *ngIf="data != null" style="margin-top: 50px;">
+    <ion-row>
+      <ion-col text-center>
         <img [src]="data.logo">
       </ion-col>
-      <ion-col></ion-col>
     </ion-row>
 
     <div class="login-box">
@@ -48,18 +45,22 @@
         <ion-item *ngIf="authForm.controls.senha.hasError('minlength') && authForm.controls.senha.touched">
           <p>Desculpe, senha deve conter mais de 8 caracteres!</p>
         </ion-item>-->
+        <div style="margin-top: 40px;">
+          <ion-row>
+            <ion-col text-center>
+              <button ion-button default-button color="secondary"
+                      [disabled]="!authForm.valid"
+                      type="submit"
+                      class="loginSubmit">{{data.login}}</button>
+            </ion-col>
+          </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <button ion-button default-button full color="secondary"
-                    class="loginSubmit"
-                    [disabled]="!authForm.valid"
-                    type="submit">{{data.login}}</button>
-            <span class="rememberPassword" (click)="onEvent('onNewPassword')">Esqueci a senha</span>
-          </ion-col>
-
-        </ion-row>
-
+          <ion-row>
+            <ion-col text-center>
+              <span (click)="onEvent('onNewPassword')">Esqueci a senha</span>
+            </ion-col>
+          </ion-row>
+        </div>
       </form>
     </div>
 

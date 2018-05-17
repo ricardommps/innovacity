@@ -39,6 +39,13 @@ export class OcorrenciasService {
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
+  public occurenceClosedRead(idOccurence): Observable<any>  {
+    console.log("----occurenceClosedRead----")
+    let url:string = `/occurenceClosedRead/${idOccurence}`
+    return this.http.get(url).map((res:Response) => res.json());
+    //return this.http.get(`/ocorrencias/${userId}`).toPromise();
+  }
+
   public occurence(idOccurence): Observable<any>  {
     let url:string = `/ocorrence/${idOccurence}`
     return this.http.get(url).map((res:Response) => res.json());

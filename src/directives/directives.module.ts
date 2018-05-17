@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { TextAvatarDirective } from './text-avatar/text-avatar';
+import { ReadMoreDirective } from './rede-more/read-more.directive';
 import { TitlePageDirective } from './title-page/title-page';
 @NgModule({
-	declarations: [TextAvatarDirective],
+	declarations: [TextAvatarDirective,ReadMoreDirective],
 	imports: [IonicModule],
-	exports: [TextAvatarDirective]
+	exports: [TextAvatarDirective,ReadMoreDirective]
 })
 export class DirectivesModule {}

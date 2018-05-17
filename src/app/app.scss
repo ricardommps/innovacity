@@ -14,9 +14,9 @@
 // automatically applied to the <body> element in the app.
 // Settings Style Main Meni
 [header-background-image] {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
+    height: 98px;
+   // background-size: cover;
+    //background-position: center;
     @include darkening-blend-mode;
     [header-title] {
         padding-right: 10%;
@@ -50,3 +50,383 @@ text-avatar, text-avatar::after {
   height: 60px !important;
   border-radius: 19.1rem !important;
 }
+
+login-layout-1 .content-md {
+  background-image: url('../assets/images/splashscreen/tela-login.png') !important;
+  background-repeat: no-repeat !important;
+  background-size:cover !important;
+}
+
+.headerMenu{
+  padding: 23px 10px 10px 10px !important;
+}
+
+.contentMenu{
+  margin-top: 0px !important;
+}
+
+.nameMenu{
+  position: relative;
+  top: -62px;
+  left: 77px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 67%;
+}
+
+.iconItem{
+  font-size: 30px !important;
+  margin-top: 0px !important;
+  color: #fe5a5a !important;
+}
+
+.itemDetalhes{
+  font-size: 12px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  width: 95% !important;
+}
+
+.iconColorPending{
+  color:#fe5a5a !important;
+  padding-top: 10px
+}
+
+.iconColorFinalized{
+  color:#5bc24f !important;
+  padding-top: 10px
+}
+
+.iconColorwWaiting{
+  color:#1097ff !important;
+  padding-top: 10px
+}
+
+.item-inner{
+  margin-left: 0px !important;
+}
+
+.itemTitleDetail{
+  olor: #4e4e4e !important;
+  font-size: 1.3em !important;
+  font-weight: normal !important;
+  margin-bottom: 12px !important;
+}
+
+.itemSubTitleDetail{
+  font-size: 1em !important;
+  color: #4e4e4e;
+}
+
+ion-tabs {
+  margin-bottom: 20px;
+}
+
+ion-tabs,
+ion-tabs .tabbar {
+  position: relative;
+  top: auto;
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+ion-tabs, ion-tabs .tabbar {
+  position: relative;
+  top: auto;
+  height: 70px;
+  visibility: visible;
+  opacity: 1;
+  border-bottom: 1px solid #dcdce0;
+}
+
+ion-tabs {
+  margin-bottom: 4px;
+}
+
+
+
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .95 );
+  }
+}
+
+/* Like button */
+.like-btn:active {
+  animation: heartbeat 1s linear;
+}
+
+/* Link */
+a {
+  text-decoration: none;
+  color: #003581;
+}
+
+/* Grid */
+.grid_img {
+  margin-bottom: -5px;
+}
+.grid_img img{
+  -webkit-filter: brightness(100%);
+  -moz-filter: brightness(100%);
+  -o-filter: brightness(100%);
+  -ms-filter: brightness(100%);
+  filter: brightness(100%);
+}
+
+.grid_img:active img{
+  -webkit-filter: brightness(70%);
+  -moz-filter: brightness(70%);
+  -o-filter: brightness(70%);
+  -ms-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
+/* Card Content */
+.card {
+  width: 100vw !important;
+}
+
+.like-content {
+  font-weight: bold;
+  font-family: Helvetica Neue;
+}
+
+.icon-space {
+  padding-top: 3px;
+  padding-left: 10px;
+}
+
+/* Stories */
+.story {
+  white-space: nowrap;
+  height: 158px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.story_scroll {
+  display: inline-block;
+  width: 30.5%;
+  margin: 18px 47px 10px 10px;
+  margin-right: 0%;
+  margin-left: 2%;
+  float: left;
+}
+
+.story_img_bg {
+  width: 70px;
+  padding: 2px;
+  border-radius: 50%;
+  padding-bottom: 0;
+  transition: all 1s;
+  -webkit-transition: all 0.2s;
+  margin: 0 auto;
+}
+
+.story_img_bg:active {
+  transform: scale(1.1);
+}
+
+.story_img {
+  width:100%;
+  border-radius:80%;
+  text-align:center;
+  font-size: 25px;
+  padding:46% 0;
+  line-height:0;
+  position:relative;
+  color: black;
+}
+.story_img span{
+  display: inline-block;
+  min-width: 10px;
+  padding: 4px 6px;
+  color: #fff;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 13px;
+  text-shadow: none;
+  line-height: 11px;
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  font-size: 0.6em;
+}
+.story_img.pending{
+  border: 3px solid #fe5a5a;
+  span{
+    background-color: #fe5a5a;
+  }
+}
+.story_img.waiting{
+  border: 3px solid #1097ff;
+  span{
+    background-color: #1097ff;
+  }
+}
+.story_img.finalized{
+  border: 3px solid #5bc24f;
+  span{
+    background-color: #5bc24f;
+  }
+}
+
+.story_text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3px
+}
+
+.story_text{
+  font-size: 12px;
+  margin-top: 13px !important;
+}
+
+.story_text.waiting{
+  white-space: normal !important;
+}
+
+.story_scroll.story_scroll_waiting{
+  position: relative;
+  top: 13px;
+}
+
+.item-wrapper{
+  border-bottom: 1px solid #ebebeb;
+}
+
+.naolido {
+  background-color: rgba(162, 161, 161, 0.15);
+}
+
+.button-md {
+  text-transform:none !important;
+}
+
+.endService {
+  background-color: #6BC860;
+}
+
+.openService {
+  background-color: #FF4F4F;
+}
+
+.alertConfirme{
+  .alert-message {
+    overflow-y: hidden;
+    max-height: 800px !important;
+    padding: 0 24px 0px 24px !important;
+    text-align: center;
+  }
+
+  img {
+    width: 4.0em !important;
+    height: auto !important;
+  }
+
+  .iconMessage{
+    color: #1097ff;
+    font-size: 2.7em;
+    margin-top: -8px;
+    margin-bottom: 0px;
+  }
+
+  .alert-head{
+    margin-bottom: -15px;
+    text-align: center;
+  }
+}
+
+.alertComments{
+  .alert-title {
+    text-align: left;
+  }
+
+  .alert-message {
+    overflow-y: hidden;
+    max-height: 800px !important;
+    padding: 0 24px 0px 24px !important;
+    text-align: left;
+  }
+}
+
+.alertCustomCss{
+  .alert-title {
+    text-align: center;
+  }
+
+  .alert-message{
+    margin-bottom: 15px;
+  }
+
+  img {
+    width: 4.0em !important;
+    height: auto !important;
+  }
+
+  button.alert-button:nth-child(1){
+    border-radius: 64px;
+    padding: 0.5em 1.8rem;
+    font-weight: bold;
+    font-size: 1em;
+
+  }
+
+  button.alert-button:nth-child(1) .button-inner{
+    color: #FF4F4F !important;
+  }
+
+  button.alert-button:nth-child(2){
+    border-radius: 64px;
+    padding: 0.5em 1.8rem;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  button.alert-button:nth-child(2) .button-inner.button-inner{
+    color: #6BC860 !important;
+  }
+
+}
+
+.button-round-md {
+  border-radius: 64px !important;
+  padding: 0 2.6rem !important;
+}
+
+.button-inner{
+  font-size: 3.5vw !important;
+  color: white !important;
+}
+
+
+

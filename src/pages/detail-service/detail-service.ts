@@ -27,6 +27,7 @@ export class DetailServicePage {
               public auth: AuthService,
               public notificacao: NotificacaoService) {
     this.ocorrencia = navParams.get('ocorrencia');
+    console.log("------",this.ocorrencia)
     if(this.ocorrencia){
      if(this.ocorrencia.status_id == 1){
         this.ocorrenciaService.occurence(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
@@ -46,13 +47,24 @@ export class DetailServicePage {
            this.items = occurence.data
          }
        })
+       try{
+         console.log(">>>>ID",this.ocorrencia._id);
+         ocorrenciaService.occurenceClosedRead(this.ocorrencia._id).subscribe(() => {
+         })
+       }catch (e) {
+
+       }
+
+
      }else{
        notificacao.notificationDetails(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
          if(occurence.success){
            this.items = occurence.data
+           console.log('-------Occurence',this.items[0].id_notificacao)
+           notificacao.notificationRead(this.items[0].id_notificacao).subscribe((occurence) => {
+           })
          }
        })
-
      }
     }
 

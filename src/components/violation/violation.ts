@@ -35,34 +35,16 @@ export class ViolationComponent {
     })
   }
   ngAfterContentInit(){
-    this.categories = Object.assign({}, this.data[0])
-    this.categorieSelected = this.categories
-    if(this.data){
-      this.violations = this.data
-      this.typeSelected = this.violationsSelected ? this.violationsSelected : []
-      this.violations.map((violation) => {
-        violation.infracao.map((infracao) => {
-          this.typeSelected.map((violationSelected) => {
-            if(violationSelected.codigo == infracao.codigo){
-              infracao.checked = true
-            }
-          })
-        })
-      })
-    }
-  }
-
-  updateTypeSelected(item) {
-    let index = this.typeSelected.map((item) => { return item.codigo}).indexOf(item.codigo )
-    if(index < 0){
-      item.checked = true
-      this.typeSelected.push(item)
-    }else{
-      this.typeSelected.splice(index, 1);
-    }
+    this.typeSelected = [];
+    this.data.infracao.map((infracao) => {
+      if(infracao.checked == undefined){
+        infracao.checked = false
+      }
+    })
+    this.typeSelected = Object.assign({},  this.data);
+    console.log(">>>>typeSelected<<<<",this.typeSelected)
 
   }
-
 }
 
 

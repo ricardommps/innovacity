@@ -51,8 +51,7 @@ $alert-md-radio-label-text-color-checked: #000000;
 $alert-md-message-text-color: #787878;
 $alert-md-radio-label-text-color: #787878;
 $alert-md-radio-label-text-color-checked: #787878;
-$alert-md-background-color: color($colors, dark);
-$alert-md-button-text-color: color($colors, dark);
+
 
 @function font-size-text($key) {
   @return map-get($font-size-text, $key);
@@ -765,6 +764,20 @@ $toolbar-md-title-text-color: theme-colors('mainColors', 'primary');
 
   .item-md.item-block .item-inner {
     box-shadow: none !important;
+  }
+
+  login-layout-1 .content-md {
+    background-image: url('../assets/images/splashscreen/tela-login.png') !important;
+    background-repeat: no-repeat !important;
+    background-size:cover !important;
+  }
+
+  .loginContent {
+    color: yellow;
+  }
+
+  testelogin{
+    color: chartreuse !important;;
   }
 
 }

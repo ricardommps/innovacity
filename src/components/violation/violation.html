@@ -1,60 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Infração</ion-title>
-    <ion-badge color="accent">{{typeSelected.length}}</ion-badge>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="onEvent('onClose', $event)"><ion-icon name="checkmark"></ion-icon></button>
+    <ion-title>Teste</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only class="my-style-for-modal" (click)="onEvent('onClose')">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons start>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!--<ion-segment ng-model="categories" full="true" color="secondary" (ionChange)="segmentChanged($event)">
-    <ion-segment-button *ngFor="let type of violations" value={{type.infracao}}>
-      {{type.infracao}}
-    </ion-segment-button>
-  </ion-segment>-->
-  <h1>Infração</h1>
-  <ion-select [(ngModel)]="categories.id_categoria" name="categories.id_categoria" color="secondary" (ionChange)="onSelectChange($event)">
-    <ion-option *ngFor="let violation of violations" value="{{ violation.id_categoria }}">
-      {{ violation.categoria }}
-    </ion-option>
-  </ion-select>
-
-  <div *ngIf="categorieSelected">
-
-    <ion-list>
-      <ion-item *ngFor="let infracao of categorieSelected.infracao" text-wrap>
-        <ion-label item-title>{{infracao.codigo }}: {{infracao.item}}</ion-label>
-        <ion-checkbox color="secondary"
-                      (ionChange)="updateTypeSelected(infracao)"
-                      [ngModel]="infracao.checked"></ion-checkbox>
-      </ion-item>
-    </ion-list>
-
-  </div>
-  <!--<div *ngIf="categories">
-    <ion-list>
-      <ion-item *ngFor="let type of filterItemsOfViolation('Lotes/Edificações')" text-wrap>
-        <ion-label item-title>{{type.title}}</ion-label>
-        <ion-checkbox color="secondary"
-                      (ionChange)="updateTypeSelected(type)"
-                      [ngModel]="type.checked"></ion-checkbox>
-      </ion-item>
-    </ion-list>
-  </div>-->
-
-  <!--<div *ngIf="categories">
-    <ion-list>
-      <ion-item *ngFor="let type of filterItemsOfViolation('Logradouros públicos')" text-wrap>
-        <ion-label item-title>{{type.title}}</ion-label>
-        <ion-checkbox color="secondary" (ionChange)="updateTypeSelected(type)"
-                      [ngModel]="type.checked"></ion-checkbox>
-      </ion-item>
-    </ion-list>
-  </div>-->
-  <div style="margin-bottom: 30px;" *ngIf="false">
-    <button ion-button full color="secondary" (click)="onEvent('onSaveViolations', typeSelected, $event)">Salvar</button>
-  </div>
-
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-col col-12 no-padding no-margin>
+      <ion-list no-lines>
+        <ion-item-sliding *ngFor="let item of typeSelected.infracao;let i = index" [attr.data-index]="i" #slidingItem>
+          <ion-item no-lines>
+            <ion-label>
+            <h2>{{item.codigo}}</h2>
+            <div style="margin-top: 3px;">
+              <p #textContent1 id="read-more{{i}}" text-wrap>
+                {{item.infracao}}
+              </p>
+              <div class="read-more-link">
+                <a readMore [readMore-length]="80"
+                   [readMore-element]="textContent1">
+                  <span class="less">Menos <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                  <span class="more">Mais <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                </a>
+              </div>
+            </div>
+            </ion-label>
+            <ion-toggle color="green" item-end [(ngModel)]="item.checked"></ion-toggle>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+      <button ion-button round color="secondary" float-right
+              class="endService"  (click)="onEvent('onSaveViolations', data, $event)"
+              style="margin-right: 20px; background-color: #1EB3CC !important;">
+        Continuar
+      </button>
+    </ion-col>
+  </ion-grid>
 </ion-content>
+

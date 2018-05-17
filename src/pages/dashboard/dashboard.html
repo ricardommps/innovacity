@@ -3,12 +3,25 @@
     <button ion-button menuToggle>
       <ion-icon class="icon-menu" name="menu"></ion-icon>
     </button>
-    <ion-title>Atendimento Pendente</ion-title>
+    <ion-title>Atendimentos</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
+
+<tab-menu *ngIf="!isEmptyObject(finalized) && !isEmptyObject(waiting) && !isEmptyObject(pending)"
+          [dataFinalized]="finalized"
+          [dataWaiting]="waiting"
+          [dataPending]="pending"
+          [events]="params.events">
+
+</tab-menu>
+
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content>
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
   <dashboard *ngIf="params.data"

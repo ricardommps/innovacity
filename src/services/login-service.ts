@@ -1,6 +1,5 @@
 import { IService } from './IService';
 import { Toast } from 'ionic-native';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SpinnerDialog } from 'ionic-native';
@@ -9,7 +8,7 @@ import { AppSettings } from './app-settings'
 @Injectable()
 export class LoginService implements IService {
 
-    constructor(public af: AngularFireDatabase) { }
+    constructor() { }
 
     getId = (): string => 'login';
 
@@ -110,7 +109,7 @@ export class LoginService implements IService {
 
     load(item: any): Observable<any> {
         SpinnerDialog.show(null, "Loading");
-        if (AppSettings.IS_FIREBASE_ENABLED) {
+        /*if (AppSettings.IS_FIREBASE_ENABLED) {
             return new Observable(observer => {
                 this.af
                     .object('login/' + item.theme)
@@ -131,6 +130,11 @@ export class LoginService implements IService {
                 observer.next(this.getDataForTheme(item));
                 observer.complete();
             });
-        }
+        }*/
+      return new Observable(observer => {
+        SpinnerDialog.hide();
+        observer.next(this.getDataForTheme(item));
+        observer.complete();
+      });
     }
 }

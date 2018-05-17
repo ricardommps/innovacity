@@ -1,15 +1,15 @@
-webpackJsonp([7,14],{
+webpackJsonp([7],{
 
-/***/ 760:
+/***/ 721:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginLayout1Module", function() { return LoginLayout1Module; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComentariosOcorrenciaPageModule", function() { return ComentariosOcorrenciaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_layout_1__ = __webpack_require__(781);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comentarios_ocorrencia_comentarios_ocorrencia_module__ = __webpack_require__(780);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__comentarios_ocorrencia__ = __webpack_require__(782);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,42 +20,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginLayout1Module = (function () {
-    function LoginLayout1Module() {
+var ComentariosOcorrenciaPageModule = (function () {
+    function ComentariosOcorrenciaPageModule() {
     }
-    return LoginLayout1Module;
+    return ComentariosOcorrenciaPageModule;
 }());
-LoginLayout1Module = __decorate([
+ComentariosOcorrenciaPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__login_layout_1__["a" /* LoginLayout1 */],
+            __WEBPACK_IMPORTED_MODULE_3__comentarios_ocorrencia__["a" /* ComentariosOcorrenciaPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login_layout_1__["a" /* LoginLayout1 */]),
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__comentarios_ocorrencia__["a" /* ComentariosOcorrenciaPage */]),
+            __WEBPACK_IMPORTED_MODULE_1__components_comentarios_ocorrencia_comentarios_ocorrencia_module__["a" /* ComentariosOcorrenciaModule */]
         ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_2__login_layout_1__["a" /* LoginLayout1 */]
-        ],
-        providers: [__WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]],
         schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* CUSTOM_ELEMENTS_SCHEMA */]]
     })
-], LoginLayout1Module);
+], ComentariosOcorrenciaPageModule);
 
-//# sourceMappingURL=login-layout-1.module.js.map
+//# sourceMappingURL=comentarios-ocorrencia.module.js.map
 
 /***/ }),
 
-/***/ 771:
+/***/ 780:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComentariosOcorrenciaModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(964);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_login_layout_1_login_layout_1_module__ = __webpack_require__(760);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comentarios_ocorrencia__ = __webpack_require__(781);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,28 +59,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-var LoginPageModule = (function () {
-    function LoginPageModule() {
+var ComentariosOcorrenciaModule = (function () {
+    function ComentariosOcorrenciaModule() {
     }
-    return LoginPageModule;
+    return ComentariosOcorrenciaModule;
 }());
-LoginPageModule = __decorate([
+ComentariosOcorrenciaModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */],
+            __WEBPACK_IMPORTED_MODULE_2__comentarios_ocorrencia__["a" /* ComentariosOcorrenciaComponent */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */]),
-            __WEBPACK_IMPORTED_MODULE_4__components_login_layout_1_login_layout_1_module__["LoginLayout1Module"]
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comentarios_ocorrencia__["a" /* ComentariosOcorrenciaComponent */]),
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__comentarios_ocorrencia__["a" /* ComentariosOcorrenciaComponent */]
+        ],
         schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* CUSTOM_ELEMENTS_SCHEMA */]]
     })
-], LoginPageModule);
+], ComentariosOcorrenciaModule);
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=comentarios-ocorrencia.module.js.map
 
 /***/ }),
 
@@ -94,10 +87,8 @@ LoginPageModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginLayout1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComentariosOcorrenciaComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -108,66 +99,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-var LoginLayout1 = (function () {
-    function LoginLayout1(auth, formBuilder) {
-        var _this = this;
-        this.auth = auth;
-        this.formBuilder = formBuilder;
-        this.onEvent = function (event) {
-            if (_this.events[event]) {
-                _this.events[event]({
-                    'usuario': _this.usuario,
-                    'senha': _this.senha
-                });
-            }
+var ComentariosOcorrenciaComponent = (function () {
+    function ComentariosOcorrenciaComponent() {
+        this.comentarioData = {
+            ocorrenciaData: {},
+            comentario: ""
         };
-        this.authForm = formBuilder.group({
-            usuario: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].maxLength(30)])],
-            senha: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6)])]
-        });
     }
-    LoginLayout1.prototype.onSubmit = function (value) {
-        if (this.authForm.valid) {
-            var event_1 = 'onLogin';
-            this.events[event_1]({
-                'usuario': this.usuario,
-                'senha': this.senha
-            });
+    ComentariosOcorrenciaComponent.prototype.ngOnInit = function () {
+        this.comentarioData.ocorrenciaData = this.data;
+    };
+    ComentariosOcorrenciaComponent.prototype.onEvent = function (event, item, e) {
+        if (this.events[event]) {
+            this.events[event](item);
         }
     };
-    return LoginLayout1;
+    return ComentariosOcorrenciaComponent;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
-], LoginLayout1.prototype, "data", void 0);
+], ComentariosOcorrenciaComponent.prototype, "data", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
-], LoginLayout1.prototype, "events", void 0);
-LoginLayout1 = __decorate([
+], ComentariosOcorrenciaComponent.prototype, "events", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+    __metadata("design:type", Object)
+], ComentariosOcorrenciaComponent.prototype, "occurenceSelected", void 0);
+ComentariosOcorrenciaComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'login-layout-1',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\login\layout-1\login.html"*/'<!-- Themes Login + logo 2 -->\n<ion-content has-header class="loginContent">\n  <ion-grid no-padding *ngIf="data != null">\n\n    <ion-row class="logo-row">\n      <ion-col></ion-col>\n      <ion-col width-67>\n        <img [src]="data.logo">\n      </ion-col>\n      <ion-col></ion-col>\n    </ion-row>\n\n    <div class="login-box">\n      <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)" class="loginForm">\n        <ion-row>\n          <ion-col>\n            <ion-item padding margin-top>\n              <!--<ion-item padding margin-top [ngClass]="{\'error-border\':!authForm.controls.usuario.valid && authForm.controls.usuario.touched}">-->\n              <ion-input required type="text" placeholder="{{data.usuario}}" [(ngModel)]="usuario" formControlName="usuario"></ion-input>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col>\n            <ion-item padding>\n              <ion-input required type="password" placeholder="{{data.senha}}" [(ngModel)]="senha" formControlName="senha"></ion-input>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n\n        <!--<ion-item *ngIf="authForm.controls.usuario.hasError(\'required\') && authForm.controls.usuario.touched">\n          <p>Desculpe, o nome de usuário é obrigatório!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.usuario.hasError(\'pattern\') && authForm.controls.usuario.touched">\n          <p>Desculpe, somente letras minúsculas e maiúsculas são permitidas!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.usuario.hasError(\'minlength\') && authForm.controls.usuario.touched">\n          <p>Desculpe, o nome de usuário deve conter mais de 8 caracteres!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.usuario.hasError(\'maxlength\') && authForm.controls.usuario.touched">\n          <p>Desculpe, o nome de usuário não pode conter mais de 30 caracteres!</p>\n        </ion-item>-->\n        <!---Input field password-->\n\n        <!--<ion-item *ngIf="authForm.controls.senha.hasError(\'required\') && authForm.controls.senha.touched">\n          < <p>Desculpe, s senha é obrigatório!</p>\n        </ion-item>\n        <ion-item *ngIf="authForm.controls.senha.hasError(\'minlength\') && authForm.controls.senha.touched">\n          <p>Desculpe, senha deve conter mais de 8 caracteres!</p>\n        </ion-item>-->\n\n        <ion-row>\n          <ion-col>\n            <button ion-button default-button full color="secondary"\n                    class="loginSubmit"\n                    [disabled]="!authForm.valid"\n                    type="submit">{{data.login}}</button>\n            <span class="rememberPassword" (click)="onEvent(\'onNewPassword\')">Esqueci a senha</span>\n          </ion-col>\n\n        </ion-row>\n\n      </form>\n    </div>\n\n    <!---Share Section-->\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\login\layout-1\login.html"*/,
-        providers: [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]]
+        selector: 'comentarios-ocorrencia',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\comentarios-ocorrencia\comentarios-ocorrencia.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>Fechar Ocorrência</ion-title>\n       <ion-buttons end>\n      <button ion-button icon-only (click)="onEvent(\'onClose\', $event)"><ion-icon name="close"></ion-icon></button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-grid no-padding>\n    <ion-row *ngIf="data != null">\n      <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>\n        <ion-card text-left>\n          <ion-card-content>\n            <ion-card-title>\n              <!--Card Title-->\n              <h2 card-title>{{data.tipo}}</h2>\n              <!--Card Subtitle-->\n              <h1 card-subtitle>{{data.numero_atendimento}}</h1>\n              <!--Card Body Text-->\n              <ion-textarea placeholder="Comentarios"\n                            [(ngModel)]="comentarioData.comentario" name="note" autocomplete="on" autocorrect="on"></ion-textarea>\n            </ion-card-title>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n    <button ion-button default-button full color="secondary" style="margin-top: 20px; text-transform: none;" (click)="onEvent(\'onCloseOccurence\', comentarioData, $event)">Salvar</button>\n  </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\components\comentarios-ocorrencia\comentarios-ocorrencia.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
-], LoginLayout1);
+    __metadata("design:paramtypes", [])
+], ComentariosOcorrenciaComponent);
 
-//# sourceMappingURL=login-layout-1.js.map
+//# sourceMappingURL=comentarios-ocorrencia.js.map
 
 /***/ }),
 
-/***/ 964:
+/***/ 782:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComentariosOcorrenciaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_native__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -179,217 +157,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams, menu, auth, alertCtrl, toastCtrl, events) {
+/**
+ * Generated class for the ComentariosOcorrenciaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ComentariosOcorrenciaPage = (function () {
+    function ComentariosOcorrenciaPage(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.menu = menu;
-        this.auth = auth;
-        this.alertCtrl = alertCtrl;
-        this.toastCtrl = toastCtrl;
-        this.events = events;
+        this.viewCtrl = viewCtrl;
         this.params = {};
-        this.user = {};
-        this.params.data = {
-            "usuario": "Login",
-            "senha": "Senha",
-            "register": "Register",
-            "login": "Acessar",
-            "skip": "Skip",
-            "logo": "assets/images/logo/logo-simplificado-rgb.png"
-        };
+        this.params.data = navParams.get('occurence') ? navParams.get('occurence') : {};
         this.params.events = {
-            onLogin: function (params) {
-                auth.login(params).then(function (user) {
-                    if (user.json().success) {
-                        if (user.json().data.length == 0) {
-                            loginError('Usuário ou senha inválidos.');
-                        }
-                        else {
-                            if (user.json().data[0].atualizar_senha) {
-                                presentPrompt(user.json().data[0].usuario);
-                            }
-                            else {
-                                loginSucess(user.json().data[0]);
-                            }
-                        }
-                    }
-                }).catch(function (err) {
-                    loginError('Ocorreu um erro ao processar o seu pedido. Por favor tente novamente.');
-                });
+            'onClose': function (service) {
+                viewCtrl.dismiss();
             },
-            onNewPassword: function () {
-                __WEBPACK_IMPORTED_MODULE_1_ionic_native__["c" /* StatusBar */].styleDefault();
-                alertNewPassword();
-            },
+            'onCloseOccurence': function (item) {
+                viewCtrl.dismiss(item);
+            }
         };
-        function alertNewPassword() {
-            var alert = alertCtrl.create({
-                title: 'Solicitar uma nova senha de acesso',
-                cssClass: 'alert',
-                inputs: [
-                    {
-                        name: 'userInfo',
-                        placeholder: 'Usuario ou E-mail',
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Cancelar',
-                        role: 'cancel',
-                        handler: function (data) {
-                        }
-                    },
-                    {
-                        text: 'Salvar',
-                        handler: function (data) {
-                            if (data.userInfo.length > 0) {
-                                var userInfo = {
-                                    "userInfo": data.userInfo
-                                };
-                                auth.newPassword(userInfo).then(function (resulte) {
-                                    if (resulte.json().success) {
-                                        __WEBPACK_IMPORTED_MODULE_1_ionic_native__["b" /* Splashscreen */].hide();
-                                        confirmeSendEmail(resulte.json().data);
-                                    }
-                                    else {
-                                        __WEBPACK_IMPORTED_MODULE_1_ionic_native__["b" /* Splashscreen */].hide();
-                                        loginError(resulte.json().data);
-                                        return false;
-                                    }
-                                }).catch(function (err) {
-                                    loginError('Ocorreu um erro ao processar o seu pedido. Por favor tente novamente.');
-                                    return false;
-                                });
-                            }
-                            else {
-                                presentToastAlert("É obrigatório o preenchimento do usuário ou do e-mail ");
-                                return false;
-                            }
-                        }
-                    }
-                ]
-            });
-            alert.present();
-        }
-        function presentToastAlert(msg) {
-            var toast = toastCtrl.create({
-                message: msg,
-                duration: 3000,
-                position: 'middle'
-            });
-            toast.onDidDismiss(function () {
-            });
-            toast.present();
-        }
-        function confirmeSendEmail(msg) {
-            var alert = alertCtrl.create({
-                title: 'Secesso!',
-                subTitle: msg,
-                buttons: ['Ok']
-            });
-            alert.present();
-        }
-        function presentPrompt(usuario) {
-            var alert = alertCtrl.create({
-                title: 'Nova senha',
-                inputs: [
-                    {
-                        name: 'senhaAntiga',
-                        placeholder: 'Senha atual',
-                        type: 'password'
-                    },
-                    {
-                        name: 'novaSenha',
-                        placeholder: 'Nova Senha',
-                        type: 'password'
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Cancelar',
-                        role: 'cancel',
-                        handler: function (data) {
-                        }
-                    },
-                    {
-                        text: 'Salvar',
-                        handler: function (data) {
-                            if (true) {
-                                var user = {
-                                    "usuario": usuario,
-                                    "senhaAntiga": data.senhaAntiga,
-                                    "novaSenha": data.novaSenha
-                                };
-                                auth.updatePassword(user).then(function (user) {
-                                    if (user.json().success) {
-                                        loginSucess(user.json().data[0]);
-                                    }
-                                    else {
-                                        loginError(user.json().data);
-                                        return false;
-                                    }
-                                }).catch(function (err) {
-                                    loginError('Ocorreu um erro ao processar o seu pedido. Por favor tente novamente.');
-                                    return false;
-                                });
-                            }
-                            else {
-                                // invalid login
-                            }
-                        }
-                    }
-                ]
-            });
-            alert.present();
-        }
-        function loginSucess(user) {
-            var profile = {
-                "id": user.id,
-                "nome": user.nome,
-                "usuario": user.usuario,
-                "email": user.email,
-                "tipo_usuario": user.tipo_usuario_nome
-            };
-            auth.setStorageVariable("id_token", user.token);
-            auth.setStorageVariable("profile", profile);
-            events.publish("shareObject", profile);
-            navCtrl.setRoot("DashboardPage");
-        }
-        function loginError(err) {
-            var alert = alertCtrl.create({
-                title: 'Atenção!',
-                subTitle: err,
-                buttons: ['Ok']
-            });
-            alert.present();
-        }
     }
-    LoginPage.prototype.ionViewDidEnter = function () {
-        this.menu.enable(false, 'side-menu');
-    };
-    LoginPage.prototype.ionViewWillLeave = function () {
-        this.menu.enable(true, 'side-menu');
-    };
-    return LoginPage;
+    return ComentariosOcorrenciaPage;
 }());
-LoginPage = __decorate([
+ComentariosOcorrenciaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\pages\login\login.html"*/'<login-layout-1\n  [data]="params.data"\n  [events]="params.events">\n</login-layout-1>\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\pages\login\login.html"*/,
-        providers: [__WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]]
+        selector: 'page-comentarios-ocorrencia',template:/*ion-inline-start:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\pages\comentarios-ocorrencia\comentarios-ocorrencia.html"*/'\n<comentarios-ocorrencia\n  [data]="params.data"\n  [events]="params.events"></comentarios-ocorrencia>\n'/*ion-inline-end:"C:\Users\ricar\Documents\softplan\innovaCity\mobile\new\innovacity\src\pages\comentarios-ocorrencia\comentarios-ocorrencia.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* MenuController */],
-        __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["o" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* Events */]])
-], LoginPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */]])
+], ComentariosOcorrenciaPage);
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=comentarios-ocorrencia.js.map
 
 /***/ })
 

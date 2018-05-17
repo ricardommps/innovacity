@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ViolationModule } from '../../components/violation/violation.module'
 import { IonicPageModule } from 'ionic-angular';
 import { ViolationPage } from './violation';
+import { DirectivesModule } from '../../directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { ViolationPage } from './violation';
   ],
   imports: [
     IonicPageModule.forChild(ViolationPage),
-    ViolationModule,
+    DirectivesModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

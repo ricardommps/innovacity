@@ -1,3 +1,14 @@
 page-violation {
+  .displayMore{
+    display: flex;
+  }
 
+  .displayNoneMore{
+    display: none;
+  }
+
+  .displayMore{
+    display: inline !important;
+    color: #1eb3cc;
+  }
 }

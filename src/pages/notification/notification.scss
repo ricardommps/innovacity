@@ -9,7 +9,7 @@ page-notification {
     text-transform: uppercase;
   }
 
-  .title-components span{
+  .title-components span {
     text-transform: none;
     color: black;
     font-size: 20px;
@@ -30,13 +30,15 @@ page-notification {
   }
 
 
-  .fab-md-primary{
-    width: 31px;
-    height: 31px;
+  .fab-md-primary {
+    width: 55px;
+    height: 55px;
     position: absolute;
     top: -11px;
     right: 0px;
-
+    color: #fff;
+    background-color: #1EB3CC;
+    font-size: 1.5em;
   }
 
   .item-ios.item-label-stacked [item-right],
@@ -74,15 +76,53 @@ page-notification {
   }
   // Title
   [title] {
-    /* margin-right: 20%; */
-    font-size: 20px !important;
-    /* font-weight: bold; */
-    /* line-height: 34px; */
-    color: black !important;
+    color: #4e4e4e !important;
+    font-size: 1.3em !important;
   }
 
   [stacked] {
     font-size: 10px !important;
   }
 
+  [ion-button] {
+    font-size: 0.8em !important;
+  }
+
+
+
+  .buttonFab span {
+    position: relative !important;
+    font-size: 2em !important;
+   // top: -0.1em !important;
+  }
+
+  .item-md.item-input.item-input-has-focus .item-inner, item-md.item-input.input-has-focus .item-inner{
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .text-input::-moz-placeholder {
+    color: #afadad;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: #afadad;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    text-indent: 0;
+    color: #afadad;
+  }
 }
