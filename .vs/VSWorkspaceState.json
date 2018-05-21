@@ -2,15 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components",
-    "\\src\\components\\dashboard",
-    "\\src\\components\\login",
-    "\\src\\components\\login\\layout-1",
-    "\\src\\components\\notification",
-    "\\src\\components\\violation",
-    "\\src\\pages\\dashboard",
+    "\\src\\environments",
+    "\\src\\pages",
     "\\src\\pages\\notification"
   ],
-  "SelectedNode": "\\src\\components\\dashboard\\dashboard.scss",
+  "SelectedNode": "\\src\\pages\\notification\\notification.scss",
   "PreviewInSolutionExplorer": false
 }

@@ -7,7 +7,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IntimatePage} from "../intimate/intimate";
 import * as moment from 'moment';
 import {NotificacaoService} from "../../services/notificacao";
-import {AuthService} from "../../services/auth.service";
+import { AuthService } from "../../services/auth.service";
+import { LoadingController } from 'ionic-angular';
 
 
 function validateViolations(control: FormControl) {
@@ -42,8 +43,12 @@ export class NotificationPage {
               public contribuinte: ContribuinteService,
               public notificacao: NotificacaoService,
               public auth: AuthService,
-              public platform: Platform) {
+              public platform: Platform,
+              public loadingCtrl: LoadingController) {
     this.idService = navParams.get("idService");
+    if (!this.idService || this.idService == undefined) {
+      navCtrl.setRoot("DashboardPage");
+    }
     this.params = {
       title:"Cadastrar Notificação",
       data:[]
@@ -93,16 +98,16 @@ export class NotificationPage {
     modal.present();
   }
 
-  onSave(){
-
+  saveAlert(notification) {
+    var teste = 55555 / 2018
     var alertMessage =
-      "<div>"+
-      "<p>55555/2018</p>"+
+      "<div>" +
+      `<p>${notification.numero_notificacao}</p>`+
       "<p class='iconMessage'>" +
-      "<ion-icon icon-small item-left class='iconItem' style='color: #65c55a !important;'>"+
-      "<i class='icon icon-alarm'></i>"+
-      "</ion-icon>"+
-      "</p>"+
+      "<ion-icon icon-small item-left class='iconItem' style='color: #65c55a !important;'>" +
+      "<i class='icon icon-alarm'></i>" +
+      "</ion-icon>" +
+      "</p>" +
       "</div>"
 
     let alert = this.alertCtrl.create({
@@ -119,8 +124,11 @@ export class NotificationPage {
       cssClass: 'alertConfirme'
     });
     alert.present();
+  }
 
-   /* var violations_id = []
+  onSave() {
+
+   var violations_id = []
     this.violations.map((violation) => {
       violation.infracao.map((infracao) =>{
         if(infracao.checked){
@@ -153,7 +161,8 @@ export class NotificationPage {
     this.notificacao.notification(notification)
       .then((result) => {
         if (result.json().success) {
-          this.navCtrl.setRoot("DashboardPage");
+          // this.navCtrl.setRoot("DashboardPage");
+          this.saveAlert(notification);
         }else{
           this.error(result.json().data)
         }
@@ -161,7 +170,7 @@ export class NotificationPage {
 
       });
 
-    //this.navCtrl.setRoot("DashboardPage");*/
+    //this.navCtrl.setRoot("DashboardPage");
   }
 
     alert(msg){
@@ -189,7 +198,8 @@ export class NotificationPage {
     alert.present();
   }
 
-  getCurrentPosition(){
+  getCurrentPosition() {
+    console.log(">>>getCurrentPosition<<<");
     this.platform.ready().then(() => this.obtenerPosicion()).catch((error) => {
     });
    /* this.geolocation.getCurrentPosition().then((resp) => {
@@ -215,6 +225,10 @@ export class NotificationPage {
   }
 
   obtenerPosicion(): any {
+    console.log(">>>>obtenerPosicion<<<<");
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+    });
     let options = {
       timeout:10000,
       enableHighAccuracy:true
@@ -225,6 +239,7 @@ export class NotificationPage {
       }
       this.geocoder.geocode(request)
         .then((results: GeocoderResult) => {
+          loader.dismiss();
           if(!results[0].thoroughfare){
             alert("Não foi possivel verificar sua posição. Insira o endereço manualmente")
           }else{

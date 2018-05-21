@@ -93,10 +93,10 @@ page-notification {
   .buttonFab span {
     position: relative !important;
     font-size: 2em !important;
-   // top: -0.1em !important;
+    // top: -0.1em !important;
   }
 
-  .item-md.item-input.item-input-has-focus .item-inner, item-md.item-input.input-has-focus .item-inner{
+  .item-md.item-input.item-input-has-focus .item-inner, item-md.item-input.input-has-focus .item-inner {
     border-bottom: 1px solid #dedede !important;
   }
 
@@ -124,5 +124,16 @@ page-notification {
   .text-input::-webkit-input-placeholder {
     text-indent: 0;
     color: #afadad;
+  }
+
+  .fab {
+    display: inline-flex;
+    left: 8em;
+    background-color: #6BC860;
+    color: #fff
+  }
+
+  .input-cover{
+    position:relative !important;
   }
 }

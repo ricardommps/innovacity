@@ -14,7 +14,7 @@
       <ion-row>
         <ion-col>
           <ion-item no-padding [ngClass]="{'error-border':!notificacaoForm.controls.logradouro.valid && notificacaoForm.controls.logradouro.touched}">
-            <ion-input required type="text" [(ngModel)]="params.data.logradouro" formControlName="logradouro"></ion-input>
+            <ion-input required type="text" [(ngModel)]="params.data.logradouro" formControlName="logradouro" placeholder="Logradouro"></ion-input>
             <ion-icon name="pin" item-right (click)="getCurrentPosition()" style="color: #1eb3cc"></ion-icon>
           </ion-item>
           <ion-item no-padding *ngIf="notificacaoForm.controls.logradouro.hasError('required') && notificacaoForm.controls.logradouro.touched">
@@ -101,7 +101,9 @@
         <ion-row>
           <ion-col>
             <span class="compomets">{{violationsChecked == 0 ? "Sem infração vinculada" : (violationsChecked) +" infrações selecionadas"}}</span>
-            <button ion-fab color="primary" class="buttonFab" (click)="onOpenViolation()">+</button>
+            <button ion-fab (click)="onOpenViolation()">
+              <ion-icon name="pin"></ion-icon>
+            </button>
           </ion-col>
           <ion-item no-padding margin-top style="width: 0px; height: 0px;"
                     [ngClass]="{'error-border':!notificacaoForm.controls.violations.valid && notificacaoForm.controls.violations.touched}">

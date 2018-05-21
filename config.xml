@@ -106,18 +106,17 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
-    <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.2" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAU0DvfCPA6iagVU9dM0cQMPmSoqOfV16csky" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyCe-XiKJIN0rwqoqgQe_vTBX8rEmvFpTaY" />
-        <variable name="PLAY_SERVICES_VERSION" value="12.+" />
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.0" />
+        <variable name="PLAY_SERVICES_VERSION" value="12.0.0" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="25.+" />
     </plugin>
     <plugin name="cordova-android-support-gradle-release" spec="^1.4.0">
-        <variable name="ANDROID_SUPPORT_VERSION" value="24.1.0" />
+        <variable name="ANDROID_SUPPORT_VERSION" value="25.+" />
     </plugin>
     <plugin name="cordova-android-play-services-gradle-release" spec="^1.4.0">
-        <variable name="PLAY_SERVICES_VERSION" value="12.+" />
+        <variable name="PLAY_SERVICES_VERSION" value="12.0.0" />
     </plugin>
     <allow-navigation href="http://172.23.225.135:8100" />
     <allow-navigation href="http://192.168.56.1:8100" />
