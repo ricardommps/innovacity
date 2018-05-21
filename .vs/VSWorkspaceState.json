@@ -6,6 +6,6 @@
     "\\src\\pages",
     "\\src\\pages\\notification"
   ],
-  "SelectedNode": "\\src\\pages\\notification\\notification.scss",
+  "SelectedNode": "\\src\\environments\\environment.ts",
   "PreviewInSolutionExplorer": false
 }

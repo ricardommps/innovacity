@@ -229,6 +229,7 @@ export class NotificationPage {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
+    loader.present();
     let options = {
       timeout:10000,
       enableHighAccuracy:true
