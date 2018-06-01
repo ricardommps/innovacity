@@ -10,6 +10,7 @@ export class ContribuinteService {
   }
 
   public getContribuinte(data): Promise<any>{
+    console.log(">>>getContribuinte>>>", data)
     let url:string = `/contribuinte`
     return this.http.post(url,data).toPromise();
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();

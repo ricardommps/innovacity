@@ -22,7 +22,7 @@ export class OcorrenciasService {
   }
 
   public closeOccurence(occurenceData): Promise<any>{
-    let url:string = `/closeOcorrenciaV2`
+    let url: string = `/closeOcorrencia`
     return this.http.post(url,occurenceData).toPromise();
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }

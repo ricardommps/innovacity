@@ -12,7 +12,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="24" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="24" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -105,7 +105,6 @@
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
-    <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAU0DvfCPA6iagVU9dM0cQMPmSoqOfV16csky" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyCe-XiKJIN0rwqoqgQe_vTBX8rEmvFpTaY" />
@@ -122,5 +121,6 @@
     <allow-navigation href="http://192.168.56.1:8100" />
     <allow-navigation href="http://172.23.225.99:8100" />
     <allow-navigation href="http://172.23.231.56:8100" />
+    <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
     <engine name="android" spec="7.0.0" />
 </widget>

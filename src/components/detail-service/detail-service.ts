@@ -21,4 +21,8 @@ export class DetailServiceComponent {
     }
   }
 
+  ngAfterViewInit() {
+    console.log(">>>> Data>>", this.data)
+  }
+
 }

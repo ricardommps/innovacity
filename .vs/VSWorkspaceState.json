@@ -4,8 +4,9 @@
     "\\src",
     "\\src\\environments",
     "\\src\\pages",
-    "\\src\\pages\\notification"
+    "\\src\\pages\\notification",
+    "\\src\\services"
   ],
-  "SelectedNode": "\\src\\environments\\environment.ts",
+  "SelectedNode": "\\src\\pages\\notification\\notification.ts",
   "PreviewInSolutionExplorer": false
 }

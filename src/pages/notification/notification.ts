@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Geocoder, GeocoderRequest, GeocoderResult, LatLng } from '@ionic-native/google-maps'
 import {IonicPage, NavController, NavParams, ModalController, AlertController, Platform } from 'ionic-angular';
 import { ContribuinteService } from '../../services/contribuinte';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
@@ -9,6 +8,7 @@ import * as moment from 'moment';
 import {NotificacaoService} from "../../services/notificacao";
 import { AuthService } from "../../services/auth.service";
 import { LoadingController } from 'ionic-angular';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 
 
 function validateViolations(control: FormControl) {
@@ -37,14 +37,14 @@ export class NotificationPage {
               public navParams: NavParams,
               public modalCtrl: ModalController,
               private geolocation: Geolocation,
-              private geocoder: Geocoder,
               public formBuilder: FormBuilder,
               private alertCtrl: AlertController,
               public contribuinte: ContribuinteService,
               public notificacao: NotificacaoService,
               public auth: AuthService,
               public platform: Platform,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              private nativeGeocoder: NativeGeocoder) {
     this.idService = navParams.get("idService");
     if (!this.idService || this.idService == undefined) {
       navCtrl.setRoot("DashboardPage");
@@ -235,29 +235,35 @@ export class NotificationPage {
       enableHighAccuracy:true
     };
     this.geolocation.getCurrentPosition(options).then((response) => {
-      let request: GeocoderRequest = {
-        position: new LatLng(response.coords.latitude, response.coords.longitude)
-      }
-      this.geocoder.geocode(request)
-        .then((results: GeocoderResult) => {
+      this.nativeGeocoder.reverseGeocode(response.coords.latitude, response.coords.longitude)
+        .then((result: NativeGeocoderReverseResult) => {
           loader.dismiss();
-          if(!results[0].thoroughfare){
+          this.params.data.nome_razaosocial_proprietario = "";
+          this.params.data.cpf_cnpj_proprietario = "";
+          this.params.data.numero = "";
+          this.params.data.quadra = "";
+          this.params.data.lote = "";
+          if (!result[0].thoroughfare) {
             alert("Não foi possivel verificar sua posição. Insira o endereço manualmente")
-          }else{
-            this.params.data.logradouro = results[0].thoroughfare
-            this.params.data.numero = results[0].subThoroughfare
+          } else {
+            this.params.data.logradouro = result[0].thoroughfare
+            this.params.data.numero = result[0].subThoroughfare
           }
         })
+        .catch((error: any) => {
+          loader.dismiss();
+          alert("Não foi possivel verificar sua posição. Insira o endereço manualmente")
+          console.log(error)
+        });
     })
-      .catch(error => {
-      })
   }
 
-  searchIntimate(value: any){
+  searchIntimate(value: any) {
     if(value.logradouro){
       if(value.logradouro.length > 0) {
         var search:any ={}
-        search.logradouro = value.logradouro;
+        search.logradouro = value.logradouro.substr(value.logradouro.indexOf(" ") + 1)
+        //var result = original.substr(original.indexOf(" ") + 1);
         if(value.numero){
           search.numero = value.numero;
         }
