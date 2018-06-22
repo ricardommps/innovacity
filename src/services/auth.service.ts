@@ -24,6 +24,15 @@ export class AuthService {
     return user.id
   }
 
+  public getUser(){
+    const user = JSON.parse(window.localStorage.getItem('profile'));
+    console.log(">>>>USER",user);
+    if(!user){
+      this.logout()
+    }
+    return user
+  }
+
   public setStorageVariable(name, data) {
     window.localStorage.setItem(name, JSON.stringify(data));
   }

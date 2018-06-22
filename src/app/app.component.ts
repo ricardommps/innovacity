@@ -5,7 +5,6 @@ import { AuthService } from '../services/auth.service';
 import {App} from "ionic-angular";
 import { MenuService } from '../services/menu-service';
 import { AppSettings } from '../services/app-settings';
-
 import { IService } from '../services/IService';
 
 @Component({
@@ -20,7 +19,6 @@ export class MyApp {
   pages: any;
   params:any;
   leftMenuTitle: string;
-
   constructor(
       public platform: Platform,
       public menu: MenuController,
@@ -90,4 +88,10 @@ export class MyApp {
   getServiceForPage(value: string): IService {
     return null;
   }
+  openLocalPdf() {
+     window.open('https://drive.google.com/open?id=1pnD0Aci72Qr9JWavJI7T8UH88uPI04rC', '_system');
+    //this.document.canViewDocument(filePdf, 'application/pdf', this.options, this.onPossible, this.onMissingApp, this.onImpossible, this.onError)
+  }
+
+
 }

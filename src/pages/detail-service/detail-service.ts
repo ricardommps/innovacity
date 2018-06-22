@@ -93,7 +93,8 @@ export class DetailServicePage {
         var dataClose = {
           "comentario": data.comentario,
           "id_ocorrencia": data.ocorrenciaData.id,
-          "id_usuario" : auth.getuserId()
+          "id_usuario" : auth.getuserId(),
+          "email_usuario" : auth.getUser().email
         }
 
         ocorrenciaService.closeOccurence(dataClose)
@@ -113,10 +114,10 @@ export class DetailServicePage {
     }
 
     function closeNotification(notification){
-        console.log('-----closeNotification',notification)
       var dataClose = {
         "id_ocorrencia": notification.id_ocorrencia,
-        "id_usuario" : auth.getuserId()
+        "id_usuario" : auth.getuserId(),
+        "email_usuario" : auth.getUser().email
       }
 
       notificacao.closeNotification(dataClose)
@@ -139,7 +140,8 @@ export class DetailServicePage {
        var dataOccurence = {
          "comentario": data.comentario,
          "id_ocorrencia": data.ocorrenciaData.id,
-         "id_usuario" : auth.getuserId()
+         "id_usuario" : auth.getuserId(),
+         "email_usuario" : auth.getUser().email
        }
 
         ocorrenciaService.closeOccurence(dataOccurence)

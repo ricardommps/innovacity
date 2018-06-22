@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\environments",
     "\\src\\pages",
     "\\src\\pages\\notification",
-    "\\src\\services"
+    "\\src\\theme"
   ],
   "SelectedNode": "\\src\\pages\\notification\\notification.ts",
   "PreviewInSolutionExplorer": false

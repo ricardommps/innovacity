@@ -13,6 +13,14 @@
         <!-- Menu Main List -->
         <ion-content class="contentMenu">
             <ion-list no-margin>
+                <button menuClose ion-item item-title main-menu no-lines (click)="openLocalPdf()">
+                    <ion-icon icon-small item-left>
+                      <i class="icon icon-file-pdf" [ngStyle]="{'color': '#f00' }"></i>
+                    </ion-icon>
+                    Código de posturas
+                </button>
+              </ion-list>
+            <ion-list no-margin>
                 <button menuClose ion-item item-title main-menu no-lines *ngFor="let p of pages"
                         (click)="openPage(p)">
                     <ion-icon icon-small item-left>

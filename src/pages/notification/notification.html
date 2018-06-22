@@ -101,8 +101,8 @@
         <ion-row>
           <ion-col>
             <span class="compomets">{{violationsChecked == 0 ? "Sem infração vinculada" : (violationsChecked) +" infrações selecionadas"}}</span>
-            <button ion-fab (click)="onOpenViolation()">
-              <ion-icon name="pin"></ion-icon>
+            <button ion-fab (click)="onOpenViolation()" color="secondary">
+              <ion-icon name="add"></ion-icon>
             </button>
           </ion-col>
           <ion-item no-padding margin-top style="width: 0px; height: 0px;"

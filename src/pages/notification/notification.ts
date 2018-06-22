@@ -155,7 +155,8 @@ export class NotificationPage {
       data_cadastro  : moment(new Date()).format("YYYY-MM-DD"),
       numero_notificacao  : numero_notificacao,
       tipo_notificacao : "autuação",
-      id_usuario : this.auth.getuserId()
+      id_usuario : this.auth.getuserId(),
+      email_usuario : this.auth.getUser().email
     }
 
     this.notificacao.notification(notification)
