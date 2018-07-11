@@ -52,5 +52,11 @@ export class OcorrenciasService {
     //return this.http.get(`/ocorrencias/${userId}`).toPromise();
   }
 
+  public createOccurrence(data): Promise<any>{
+    let url: string = `/createOccurrence`
+    console.log(">>>Service createOccurrence",data);
+    return this.http.post(url,data).toPromise();
+  }
+
 
 }

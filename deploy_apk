@@ -1,0 +1,9 @@
+innovacityaws@gmail.com
+Innov@2018
+
+keytool -genkey -v -keystore innovacity-release-key.keystore -alias alias_innovacity -keyalg RSA -keysize 2048 -validity 10000
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore innovacity-release-key.keystore app-release-unsigned.apk alias_innovacity
+zipalign -v 4 app-release-unsigned.apk InnovaCity.apk
+apksigner verify InnovaCity.apk
+
+https://ionicframework.com/docs/intro/deploying/

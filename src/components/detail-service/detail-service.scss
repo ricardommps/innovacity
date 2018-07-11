@@ -6,6 +6,12 @@ detail-service {
     top: 21px;
   }
 
+  .itemTitleDetail{
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   ion-icon{
     font-size: 25px !important;
   }
@@ -156,4 +162,5 @@ detail-service {
     font-size: 0.9em !important;
     color: #4e4e4e;
   }
+
 }

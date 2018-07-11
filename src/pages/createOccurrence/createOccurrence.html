@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>{{params.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!--Content-->
+<ion-content padding>
+  <ion-grid>
+    <form [formGroup]="notificacaoForm">
+      <ion-row>
+        <ion-col>
+          <ion-item no-padding [ngClass]="{'error-border':!notificacaoForm.controls.logradouro.valid && notificacaoForm.controls.logradouro.touched}">
+            <ion-input (click)="showAddressModal()" (tap)="showAddressModal()"
+              [(ngModel)]="address.place" 
+              type="text" required formControlName="logradouro" placeholder="Logradouro"></ion-input>
+            <ion-icon name="pin" item-right (click)="getCurrentPosition()" style="color: #1eb3cc; z-index: 1000;"></ion-icon>
+          </ion-item>
+          <p class="alert-form-validation" *ngIf="notificacaoForm.controls.logradouro.hasError('required') && notificacaoForm.controls.logradouro.touched">Desculpe, o campo logradouro é obrigatório!</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <ion-item no-padding>
+            <ion-input placeholder="Número" type="text" [(ngModel)]="params.data.numero" formControlName="numero"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-8>
+          <ion-item no-padding>
+            <ion-input placeholder="Complemento" type="text" [(ngModel)]="params.data.complemento" formControlName="complemento"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item no-padding>
+            <ion-select [(ngModel)]="assuntoSelected" [class.invalid]="!notificacaoForm.controls.assunto.valid && notificacaoForm.controls.assunto.touched"
+              okText="Selecione" cancelText="Cancelar" placeholder="Selecione uma infração" formControlName="assunto" (ionChange)="selecteChange($event)">
+              <ion-option *ngFor="let item of assuntos" [value]="item.id_ref">{{item.assunto}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <p class="alert-form-validation" *ngIf="notificacaoForm.controls.assunto.hasError('required') && notificacaoForm.controls.assunto.touched">Selecione uma infração!</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item no-padding [ngClass]="{'error-border':!notificacaoForm.controls.resumo.valid && notificacaoForm.controls.resumo.touched}">
+            <ion-textarea required placeholder="Resumo da infração" formControlName="resumo"></ion-textarea>
+          </ion-item>
+          <p class="alert-form-validation" *ngIf="notificacaoForm.controls.resumo.hasError('required') && notificacaoForm.controls.resumo.touched">
+              Desculpe, o campo resumo é obrigatório!
+            </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button round color="secondary" class="endService" [disabled]="!notificacaoForm.valid" (click)="saveOccurrence()">
+            Gerar ocorrência
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

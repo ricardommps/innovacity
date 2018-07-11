@@ -50,7 +50,7 @@ $alert-md-radio-label-text-color-checked: #000000;
 
 $alert-md-message-text-color: #787878;
 $alert-md-radio-label-text-color: #787878;
-$alert-md-radio-label-text-color-checked: #787878;
+//$alert-md-radio-label-text-color-checked: #787878;
 
 
 @function font-size-text($key) {
@@ -668,6 +668,13 @@ $toolbar-md-title-text-color: theme-colors('mainColors', 'primary');
   padding-top: 13px;
 }
 
+.alert-form-validation{
+  margin-bottom: 0px;
+  color: #1fb3cc;
+  font-weight: bold;
+  font-size: 12px;
+}
+
 // Alert message
 .alert-md {
   .alert-title {
@@ -775,9 +782,12 @@ $toolbar-md-title-text-color: theme-colors('mainColors', 'primary');
   .loginContent {
     color: yellow;
   }
+  .alert-radio-inner{
+    background-color:black !important;
+  }
 
-  testelogin{
-    color: chartreuse !important;;
+  .alert-radio-icon {
+    border-color: #787878 !important;
   }
 
 }

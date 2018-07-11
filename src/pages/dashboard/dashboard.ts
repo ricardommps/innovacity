@@ -3,7 +3,6 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
 import { AuthService } from "../../services/auth.service";
 import { OcorrenciasService } from "../../services/ocorrencias";
 import { NotificacaoService } from "../../services/notificacao";
-import {WaitingPage} from "../waiting/waiting";
 
 @IonicPage()
 @Component({
@@ -38,6 +37,10 @@ export class DashboardPage {
       },
       onNavigationPage: function (page) {
         navCtrl.setRoot(page);
+      },
+      oncreateOccurrence(){
+        console.log(">>>CreateOccurrencePage")
+        navCtrl.push("CreateOccurrencePage");
       }
     };
   }

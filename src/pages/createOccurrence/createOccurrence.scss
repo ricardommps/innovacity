@@ -1,0 +1,36 @@
+page-createOccurrence {
+   ion-select{
+        max-width: 100% !important;
+   } 
+   .input-wrapper {
+        display: grid !important;
+   }
+   .item-md.item-input.item-input-has-focus .item-inner, item-md.item-input.input-has-focus .item-inner {
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .item-md.item-block .item-inner {
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .text-input::-moz-placeholder {
+    color: #afadad;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: #afadad;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    color: #afadad;
+  }
+}
+

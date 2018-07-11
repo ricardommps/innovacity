@@ -27,9 +27,9 @@ export class DetailServicePage {
               public auth: AuthService,
               public notificacao: NotificacaoService) {
     this.ocorrencia = navParams.get('ocorrencia');
-    console.log("------",this.ocorrencia)
     if(this.ocorrencia){
      if(this.ocorrencia.status_id == 1){
+       console.log('---',this.ocorrencia.id_ocorrencia)
         this.ocorrenciaService.occurence(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
           if(occurence.success){
             this.items = occurence.data
@@ -42,13 +42,12 @@ export class DetailServicePage {
           }
         })
      }else if(this.ocorrencia.status_id == 2){
-       ocorrenciaService.occurenceClose(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
+       ocorrenciaService.occurenceClose(this.ocorrencia._id).subscribe((occurence) => {
          if(occurence.success){
            this.items = occurence.data
          }
        })
        try{
-         console.log(">>>>ID",this.ocorrencia._id);
          ocorrenciaService.occurenceClosedRead(this.ocorrencia._id).subscribe(() => {
          })
        }catch (e) {
@@ -60,7 +59,6 @@ export class DetailServicePage {
        notificacao.notificationDetails(this.ocorrencia.id_ocorrencia).subscribe((occurence) => {
          if(occurence.success){
            this.items = occurence.data
-           console.log('-------Occurence',this.items[0].id_notificacao)
            notificacao.notificationRead(this.items[0].id_notificacao).subscribe((occurence) => {
            })
          }
@@ -74,14 +72,13 @@ export class DetailServicePage {
           alertComments(occurence)
         },
         'onCloseNotification': function(notification: any) {
-          console.log("---onCloseNotification")
           closeNotification(notification)
         },
         'onEndNotification': function(notification: any) {
           endNotification(notification)
         },
         'onOpenService': function(item: any) {
-          navCtrl.push("NotificationPage",{idService:item.id});
+          navCtrl.push("NotificationPage",{idService:item.id, position:item.position});
         },
       }
     }
